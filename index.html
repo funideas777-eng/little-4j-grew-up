@@ -76,7 +76,7 @@
           <div class="action-icon">✈️</div>
           <div class="action-name">旅遊</div>
           <div class="action-cost">💰-10,000~80,000</div>
-          <div class="action-gain">見識+10 體力回滿</div>
+          <div class="action-gain">見識+10 體力+25</div>
         </button>
         <button class="action-card locked" data-action="rotary" id="action-rotary" onclick="game.doAction('rotary')">
           <div class="action-icon">🏛️</div>
@@ -91,6 +91,12 @@
           <div class="action-cost">選擇約會對象</div>
           <div class="action-gain">好感度UP</div>
           <div class="action-lock" id="date-lock-text">需先認識角色</div>
+        </button>
+        <button class="action-card" data-action="rest" onclick="game.doAction('rest')">
+          <div class="action-icon">😴</div>
+          <div class="action-name">休息</div>
+          <div class="action-cost">消耗1天</div>
+          <div class="action-gain">體力+50</div>
         </button>
         <button class="action-card" data-action="shop" onclick="game.openShop()">
           <div class="action-icon">🛍️</div>

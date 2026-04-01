@@ -86,7 +86,33 @@ const GameEngine = {
     const results = [];
     let eventTriggered = false;
 
+    // Hospital check: stamina < 20
+    if (actionKey !== 'rest' && s.stamina < 20) {
+      s.day += 5;
+      s.money -= 10000;
+      s.stamina = 100;
+      UI.showResultPopup('住院通知', [
+        { text: '體力過低，身體撐不住了！', type: 'result-loss' },
+        { text: '強制住院休養 5 天', type: 'result-loss' },
+        { text: '醫藥費 -10,000', type: 'result-loss' },
+        { text: '體力恢復至 100', type: 'result-gain' },
+      ]);
+      UI.updateHub(s);
+      SaveSystem.save(s);
+      return;
+    }
+
     switch (actionKey) {
+      case 'rest':
+        s.stamina = Math.min(100, s.stamina + 50);
+        s.day++;
+        results.push({ text: '休息了一天', type: '' });
+        results.push({ text: '體力 +50', type: 'result-gain' });
+        UI.updateHub(s);
+        SaveSystem.save(s);
+        UI.showResultPopup(`第 ${s.day} 天`, results);
+        return;
+
       case 'study':
         if (s.stamina < 30) { UI.showResultPopup('體力不足', [{ text: '需要至少 30 體力', type: 'result-loss' }]); return; }
         if (s.money < 5000) { UI.showResultPopup('金錢不足', [{ text: '需要至少 NT$5,000', type: 'result-loss' }]); return; }
@@ -124,10 +150,11 @@ const GameEngine = {
       case 'travel':
         const cost = 10000 + Math.floor(Math.random() * 70001);
         if (s.money < cost) { UI.showResultPopup('金錢不足', [{ text: `需要約 NT$${cost.toLocaleString()}`, type: 'result-loss' }]); return; }
-        s.money -= cost; s.stamina = 100;
+        s.money -= cost;
+        s.stamina = Math.min(100, s.stamina + 25);
         s.insight = Math.min(100, s.insight + 10);
         results.push({ text: `金錢 -${cost.toLocaleString()}`, type: 'result-loss' });
-        results.push({ text: '體力回滿！', type: 'result-gain' });
+        results.push({ text: '體力 +25', type: 'result-gain' });
         results.push({ text: '見識 +10', type: 'result-gain' });
         eventTriggered = this.checkEventTrigger('travel', results);
         break;
