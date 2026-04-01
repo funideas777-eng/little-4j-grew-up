@@ -1,0 +1,90 @@
+{
+  "lastUpdated": "2026-04-01",
+  "totalRemaining": 33,
+  "priority": "high-to-low: yuki_scenes > rebecca_scenes > characters",
+  "remaining": {
+    "yuki_scenes": {
+      "count": 5,
+      "status": "next_priority",
+      "items": [
+        {
+          "id": "SC03_11",
+          "file": "scene_yuki_ch4_yukata_room.png",
+          "folder": "assets/images/scene_yuki/",
+          "description": "旅館房間",
+          "prompt": "Anime style, traditional Japanese ryokan tatami room at night. A beautiful girl in a loose white yukata robe, slightly flushed cheeks from the hot spring, holding a beer can. Sitting by an open sliding door overlooking a moonlit Japanese garden. Her hair is down and slightly damp. Relaxed and intimate atmosphere. Warm room lighting. High quality."
+        },
+        {
+          "id": "SC03_12",
+          "file": "scene_yuki_ch4_approach.png",
+          "folder": "assets/images/scene_yuki/",
+          "description": "Yuki靠近",
+          "prompt": "Anime style, intimate tatami room scene. A beautiful woman in a loose yukata leaning close to a man, her face flushed pink, eyes half-lidded with emotion. Moonlight through shoji screens casting soft shadows. Japanese garden visible outside. Beer cans on low table. Sensual and tender atmosphere. Warm and cool light contrast. High quality."
+        },
+        {
+          "id": "SC03_13",
+          "file": "scene_yuki_ch5_airport.png",
+          "folder": "assets/images/scene_yuki/",
+          "description": "機場接機",
+          "prompt": "Anime style, airport arrival gate scene. A young man holding white lilies waiting at the gate. A beautiful flight attendant in uniform running towards him with open arms and the brightest smile. Other passengers and crew watching warmly. Bright airport lighting. Joyful and emotional reunion scene. High quality."
+        },
+        {
+          "id": "SC03_14",
+          "file": "scene_yuki_ch5_reunion.png",
+          "folder": "assets/images/scene_yuki/",
+          "description": "擁抱重逢",
+          "prompt": "Anime style, emotional embrace at an airport. A flight attendant jumping into a young man's arms, her hat flying off, white lilies scattered around them. Both have tears of joy. Motion blur on background passengers. Dynamic and emotional composition. Warm lighting. Beautiful moment frozen in time. High quality."
+        },
+        {
+          "id": "SC03_15",
+          "file": "scene_yuki_ch5_ending_cg.png",
+          "folder": "assets/images/scene_yuki/",
+          "description": "結局CG",
+          "prompt": "Anime style, ending CG illustration. A couple watching sunset from an airport observation deck. The woman in flight attendant uniform leaning on the man's shoulder. Planes taking off in the background against a gorgeous orange-purple sky. Their silhouettes framed by the window. Peaceful and romantic. Ultra high quality poster illustration."
+        }
+      ]
+    },
+    "rebecca_scenes": {
+      "count": 15,
+      "status": "pending",
+      "items": [
+        { "id": "SC04_01", "file": "scene_rebecca_ch1_gala.png", "description": "扶輪社宴會廳" },
+        { "id": "SC04_02", "file": "scene_rebecca_ch1_intro.png", "description": "Rebecca遞名片" },
+        { "id": "SC04_03", "file": "scene_rebecca_ch1_wine.png", "description": "紅酒對話" },
+        { "id": "SC04_04", "file": "scene_rebecca_ch2_lounge.png", "description": "私人會所下午茶" },
+        { "id": "SC04_05", "file": "scene_rebecca_ch2_tie.png", "description": "調整領帶" },
+        { "id": "SC04_06", "file": "scene_rebecca_ch2_wine_lesson.png", "description": "品酒教學" },
+        { "id": "SC04_07", "file": "scene_rebecca_ch3_golf.png", "description": "高爾夫球場" },
+        { "id": "SC04_08", "file": "scene_rebecca_ch3_cart.png", "description": "球車上的對話" },
+        { "id": "SC04_09", "file": "scene_rebecca_ch3_lonely.png", "description": "Rebecca的寂寞" },
+        { "id": "SC04_10", "file": "scene_rebecca_ch4_mansion.png", "description": "豪宅夜景" },
+        { "id": "SC04_11", "file": "scene_rebecca_ch4_robe.png", "description": "絲質睡袍的Rebecca" },
+        { "id": "SC04_12", "file": "scene_rebecca_ch4_pool.png", "description": "泳池邊的真心話" },
+        { "id": "SC04_13", "file": "scene_rebecca_ch5_paris.png", "description": "巴黎咖啡店" },
+        { "id": "SC04_14", "file": "scene_rebecca_ch5_eiffel.png", "description": "鐵塔下的擁吻" },
+        { "id": "SC04_15", "file": "scene_rebecca_ch5_ending_cg.png", "description": "結局CG" }
+      ],
+      "promptsLocation": "docs/image_asset_list.csv (rows 47-61)"
+    },
+    "character_portraits": {
+      "count": 13,
+      "status": "pending",
+      "items": [
+        { "id": "CH_00", "file": "char_4j_protagonist.png", "description": "主角4J立繪" },
+        { "id": "CH_01a", "file": "char_kaoru_normal.png", "description": "小薰-展場制服" },
+        { "id": "CH_01b", "file": "char_kaoru_casual.png", "description": "小薰-便裝" },
+        { "id": "CH_01c", "file": "char_kaoru_apron.png", "description": "小薰-花店圍裙" },
+        { "id": "CH_02a", "file": "char_amy_suit.png", "description": "Amy-套裝" },
+        { "id": "CH_02b", "file": "char_amy_racing.png", "description": "Amy-賽車服" },
+        { "id": "CH_02c", "file": "char_amy_casual.png", "description": "Amy-便裝" },
+        { "id": "CH_03a", "file": "char_yuki_uniform.png", "description": "Yuki-空姐制服" },
+        { "id": "CH_03b", "file": "char_yuki_casual.png", "description": "Yuki-便裝" },
+        { "id": "CH_03c", "file": "char_yuki_yukata.png", "description": "Yuki-浴衣" },
+        { "id": "CH_04a", "file": "char_rebecca_gala.png", "description": "Rebecca-晚禮服" },
+        { "id": "CH_04b", "file": "char_rebecca_golf.png", "description": "Rebecca-高爾夫裝" },
+        { "id": "CH_04c", "file": "char_rebecca_robe.png", "description": "Rebecca-居家絲袍" }
+      ],
+      "promptsLocation": "docs/image_asset_list.csv (rows 67-79)"
+    }
+  }
+}

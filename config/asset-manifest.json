@@ -1,0 +1,267 @@
+{
+  "version": "0.1.0",
+  "lastUpdated": "2026-04-01",
+  "summary": {
+    "totalRequired": 78,
+    "totalCompleted": 45,
+    "completionRate": "58%"
+  },
+  "categories": {
+    "scene_cg": {
+      "description": "場景CG圖 - 各角色路線劇情插圖",
+      "required": 60,
+      "completed": 40,
+      "routes": {
+        "kaoru": { "required": 15, "completed": 15, "status": "complete" },
+        "amy": { "required": 15, "completed": 15, "status": "complete" },
+        "yuki": { "required": 15, "completed": 10, "status": "partial" },
+        "rebecca": { "required": 15, "completed": 0, "status": "pending" }
+      }
+    },
+    "character_portrait": {
+      "description": "角色立繪 - 對話系統使用",
+      "required": 13,
+      "completed": 0,
+      "status": "pending"
+    },
+    "ui": {
+      "description": "UI介面圖 - 遊戲系統介面",
+      "required": 5,
+      "completed": 5,
+      "status": "complete"
+    }
+  },
+  "routes": {
+    "kaoru": {
+      "characterName": "小薰",
+      "fullName": "林小薰",
+      "age": 22,
+      "role": "車展 Show Girl",
+      "triggerAction": "Act_02",
+      "chapters": {
+        "ch1": {
+          "title": "展場初遇",
+          "scenes": [
+            { "id": "SC01_01", "file": "assets/images/scene_kaoru/scene_kaoru_ch1_meet.png", "description": "展場碰撞瞬間", "exists": true },
+            { "id": "SC01_02", "file": "assets/images/scene_kaoru/scene_kaoru_ch1_laugh.png", "description": "小薰笑出來的瞬間", "exists": true },
+            { "id": "SC01_03", "file": "assets/images/scene_kaoru/scene_kaoru_ch1_wipe.png", "description": "4J用衣服幫她擦", "exists": true }
+          ]
+        },
+        "ch2": {
+          "title": "後台救援",
+          "scenes": [
+            { "id": "SC01_04", "file": "assets/images/scene_kaoru/scene_kaoru_ch2_cry.png", "description": "小薰在道具間哭泣", "exists": true },
+            { "id": "SC01_05", "file": "assets/images/scene_kaoru/scene_kaoru_ch2_hand.png", "description": "4J拉起她的手", "exists": true },
+            { "id": "SC01_06", "file": "assets/images/scene_kaoru/scene_kaoru_ch2_resolve.png", "description": "兩人一起去找主辦方", "exists": true }
+          ]
+        },
+        "ch3": {
+          "title": "淡水約會",
+          "scenes": [
+            { "id": "SC01_07", "file": "assets/images/scene_kaoru/scene_kaoru_ch3_tamsui.png", "description": "淡水老街約會", "exists": true },
+            { "id": "SC01_08", "file": "assets/images/scene_kaoru/scene_kaoru_ch3_sunset.png", "description": "漁人碼頭日落告白", "exists": true },
+            { "id": "SC01_09", "file": "assets/images/scene_kaoru/scene_kaoru_ch3_blush.png", "description": "小薰害羞接受", "exists": true }
+          ]
+        },
+        "ch4": {
+          "title": "雨夜心動",
+          "scenes": [
+            { "id": "SC01_10", "file": "assets/images/scene_kaoru/scene_kaoru_ch4_rain.png", "description": "雨中奔跑", "exists": true },
+            { "id": "SC01_11", "file": "assets/images/scene_kaoru/scene_kaoru_ch4_tshirt.png", "description": "小薰穿著大T-shirt", "exists": true },
+            { "id": "SC01_12", "file": "assets/images/scene_kaoru/scene_kaoru_ch4_gaze.png", "description": "兩人在床邊對望", "exists": true }
+          ]
+        },
+        "ch5": {
+          "title": "花店結局",
+          "scenes": [
+            { "id": "SC01_13", "file": "assets/images/scene_kaoru/scene_kaoru_ch5_shop.png", "description": "花店開幕日", "exists": true },
+            { "id": "SC01_14", "file": "assets/images/scene_kaoru/scene_kaoru_ch5_embrace.png", "description": "花香中的擁抱", "exists": true },
+            { "id": "SC01_15", "file": "assets/images/scene_kaoru/scene_kaoru_ch5_ending_cg.png", "description": "結局CG", "exists": true }
+          ]
+        }
+      }
+    },
+    "amy": {
+      "characterName": "Amy",
+      "fullName": "陳思婷",
+      "age": 27,
+      "role": "高級車品牌業務顧問",
+      "triggerAction": "Act_03",
+      "chapters": {
+        "ch1": {
+          "title": "展示間初遇",
+          "scenes": [
+            { "id": "SC02_01", "file": "assets/images/scene_amy/scene_amy_ch1_showroom.png", "description": "展示間初遇", "exists": true },
+            { "id": "SC02_02", "file": "assets/images/scene_amy/scene_amy_ch1_explain.png", "description": "Amy專業介紹", "exists": true },
+            { "id": "SC02_03", "file": "assets/images/scene_amy/scene_amy_ch1_cold.png", "description": "Amy的距離感", "exists": true }
+          ]
+        },
+        "ch2": {
+          "title": "賽道狂飆",
+          "scenes": [
+            { "id": "SC02_04", "file": "assets/images/scene_amy/scene_amy_ch2_racesuit.png", "description": "Amy換上賽車服", "exists": true },
+            { "id": "SC02_05", "file": "assets/images/scene_amy/scene_amy_ch2_driving.png", "description": "賽道狂飆", "exists": true },
+            { "id": "SC02_06", "file": "assets/images/scene_amy/scene_amy_ch2_smile.png", "description": "Amy的真心笑容", "exists": true }
+          ]
+        },
+        "ch3": {
+          "title": "深夜辦公室",
+          "scenes": [
+            { "id": "SC02_07", "file": "assets/images/scene_amy/scene_amy_ch3_overtime.png", "description": "深夜獨自加班", "exists": true },
+            { "id": "SC02_08", "file": "assets/images/scene_amy/scene_amy_ch3_comfort.png", "description": "4J帶宵夜來", "exists": true },
+            { "id": "SC02_09", "file": "assets/images/scene_amy/scene_amy_ch3_vulnerable.png", "description": "Amy卸下防備的表情", "exists": true }
+          ]
+        },
+        "ch4": {
+          "title": "敞篷車夜景",
+          "scenes": [
+            { "id": "SC02_10", "file": "assets/images/scene_amy/scene_amy_ch4_convertible.png", "description": "敞篷車夜景", "exists": true },
+            { "id": "SC02_11", "file": "assets/images/scene_amy/scene_amy_ch4_moonlight.png", "description": "月光下的Amy", "exists": true },
+            { "id": "SC02_12", "file": "assets/images/scene_amy/scene_amy_ch4_intimate.png", "description": "親密時刻", "exists": true }
+          ]
+        },
+        "ch5": {
+          "title": "改裝車店",
+          "scenes": [
+            { "id": "SC02_13", "file": "assets/images/scene_amy/scene_amy_ch5_shop.png", "description": "改裝車店開幕", "exists": true },
+            { "id": "SC02_14", "file": "assets/images/scene_amy/scene_amy_ch5_keychain.png", "description": "鑰匙項鍊", "exists": true },
+            { "id": "SC02_15", "file": "assets/images/scene_amy/scene_amy_ch5_ending_cg.png", "description": "結局CG", "exists": true }
+          ]
+        }
+      }
+    },
+    "yuki": {
+      "characterName": "Yuki",
+      "fullName": "佐藤由紀",
+      "age": 25,
+      "role": "國際線空服員",
+      "triggerAction": "Act_04",
+      "chapters": {
+        "ch1": {
+          "title": "商務艙初遇",
+          "scenes": [
+            { "id": "SC03_01", "file": "assets/images/scene_yuki/scene_yuki_ch1_cabin.png", "description": "商務艙初遇", "exists": true },
+            { "id": "SC03_02", "file": "assets/images/scene_yuki/scene_yuki_ch1_smile.png", "description": "Yuki的服務微笑", "exists": true },
+            { "id": "SC03_03", "file": "assets/images/scene_yuki/scene_yuki_ch1_chat.png", "description": "短暫聊天", "exists": true }
+          ]
+        },
+        "ch2": {
+          "title": "機場重逢",
+          "scenes": [
+            { "id": "SC03_04", "file": "assets/images/scene_yuki/scene_yuki_ch2_casual.png", "description": "便裝的Yuki", "exists": true },
+            { "id": "SC03_05", "file": "assets/images/scene_yuki/scene_yuki_ch2_ramen.png", "description": "機場拉麵店", "exists": true },
+            { "id": "SC03_06", "file": "assets/images/scene_yuki/scene_yuki_ch2_story.png", "description": "Yuki述說身世", "exists": true }
+          ]
+        },
+        "ch3": {
+          "title": "京都之旅",
+          "scenes": [
+            { "id": "SC03_07", "file": "assets/images/scene_yuki/scene_yuki_ch3_yukata.png", "description": "浴衣漫步嵐山", "exists": true },
+            { "id": "SC03_08", "file": "assets/images/scene_yuki/scene_yuki_ch3_torii.png", "description": "鳥居下躲雨", "exists": true },
+            { "id": "SC03_09", "file": "assets/images/scene_yuki/scene_yuki_ch3_sleeve.png", "description": "用袖子擋雨", "exists": true }
+          ]
+        },
+        "ch4": {
+          "title": "溫泉夜",
+          "scenes": [
+            { "id": "SC03_10", "file": "assets/images/scene_yuki/scene_yuki_ch4_onsen.png", "description": "溫泉場景", "exists": true },
+            { "id": "SC03_11", "file": "assets/images/scene_yuki/scene_yuki_ch4_yukata_room.png", "description": "旅館房間", "exists": false },
+            { "id": "SC03_12", "file": "assets/images/scene_yuki/scene_yuki_ch4_approach.png", "description": "Yuki靠近", "exists": false }
+          ]
+        },
+        "ch5": {
+          "title": "機場重逢結局",
+          "scenes": [
+            { "id": "SC03_13", "file": "assets/images/scene_yuki/scene_yuki_ch5_airport.png", "description": "機場接機", "exists": false },
+            { "id": "SC03_14", "file": "assets/images/scene_yuki/scene_yuki_ch5_reunion.png", "description": "擁抱重逢", "exists": false },
+            { "id": "SC03_15", "file": "assets/images/scene_yuki/scene_yuki_ch5_ending_cg.png", "description": "結局CG", "exists": false }
+          ]
+        }
+      }
+    },
+    "rebecca": {
+      "characterName": "Rebecca",
+      "fullName": "王瑞貝卡",
+      "age": 38,
+      "role": "董事長夫人 / 貴婦",
+      "triggerAction": "Act_05",
+      "chapters": {
+        "ch1": {
+          "title": "扶輪社宴會",
+          "scenes": [
+            { "id": "SC04_01", "file": "assets/images/scene_rebecca/scene_rebecca_ch1_gala.png", "description": "扶輪社宴會廳", "exists": false },
+            { "id": "SC04_02", "file": "assets/images/scene_rebecca/scene_rebecca_ch1_intro.png", "description": "Rebecca遞名片", "exists": false },
+            { "id": "SC04_03", "file": "assets/images/scene_rebecca/scene_rebecca_ch1_wine.png", "description": "紅酒對話", "exists": false }
+          ]
+        },
+        "ch2": {
+          "title": "私人會所",
+          "scenes": [
+            { "id": "SC04_04", "file": "assets/images/scene_rebecca/scene_rebecca_ch2_lounge.png", "description": "私人會所下午茶", "exists": false },
+            { "id": "SC04_05", "file": "assets/images/scene_rebecca/scene_rebecca_ch2_tie.png", "description": "調整領帶", "exists": false },
+            { "id": "SC04_06", "file": "assets/images/scene_rebecca/scene_rebecca_ch2_wine_lesson.png", "description": "品酒教學", "exists": false }
+          ]
+        },
+        "ch3": {
+          "title": "高爾夫球場",
+          "scenes": [
+            { "id": "SC04_07", "file": "assets/images/scene_rebecca/scene_rebecca_ch3_golf.png", "description": "高爾夫球場", "exists": false },
+            { "id": "SC04_08", "file": "assets/images/scene_rebecca/scene_rebecca_ch3_cart.png", "description": "球車上的對話", "exists": false },
+            { "id": "SC04_09", "file": "assets/images/scene_rebecca/scene_rebecca_ch3_lonely.png", "description": "Rebecca的寂寞", "exists": false }
+          ]
+        },
+        "ch4": {
+          "title": "豪宅之夜",
+          "scenes": [
+            { "id": "SC04_10", "file": "assets/images/scene_rebecca/scene_rebecca_ch4_mansion.png", "description": "豪宅夜景", "exists": false },
+            { "id": "SC04_11", "file": "assets/images/scene_rebecca/scene_rebecca_ch4_robe.png", "description": "絲質睡袍的Rebecca", "exists": false },
+            { "id": "SC04_12", "file": "assets/images/scene_rebecca/scene_rebecca_ch4_pool.png", "description": "泳池邊的真心話", "exists": false }
+          ]
+        },
+        "ch5": {
+          "title": "巴黎新生活",
+          "scenes": [
+            { "id": "SC04_13", "file": "assets/images/scene_rebecca/scene_rebecca_ch5_paris.png", "description": "巴黎咖啡店", "exists": false },
+            { "id": "SC04_14", "file": "assets/images/scene_rebecca/scene_rebecca_ch5_eiffel.png", "description": "鐵塔下的擁吻", "exists": false },
+            { "id": "SC04_15", "file": "assets/images/scene_rebecca/scene_rebecca_ch5_ending_cg.png", "description": "結局CG", "exists": false }
+          ]
+        }
+      }
+    }
+  },
+  "characters": {
+    "protagonist": {
+      "id": "CH_00",
+      "file": "assets/images/characters/char_4j_protagonist.png",
+      "description": "主角立繪",
+      "exists": false
+    },
+    "kaoru": [
+      { "id": "CH_01a", "file": "assets/images/characters/char_kaoru_normal.png", "outfit": "展場制服", "exists": false },
+      { "id": "CH_01b", "file": "assets/images/characters/char_kaoru_casual.png", "outfit": "便裝", "exists": false },
+      { "id": "CH_01c", "file": "assets/images/characters/char_kaoru_apron.png", "outfit": "花店圍裙", "exists": false }
+    ],
+    "amy": [
+      { "id": "CH_02a", "file": "assets/images/characters/char_amy_suit.png", "outfit": "套裝", "exists": false },
+      { "id": "CH_02b", "file": "assets/images/characters/char_amy_racing.png", "outfit": "賽車服", "exists": false },
+      { "id": "CH_02c", "file": "assets/images/characters/char_amy_casual.png", "outfit": "便裝", "exists": false }
+    ],
+    "yuki": [
+      { "id": "CH_03a", "file": "assets/images/characters/char_yuki_uniform.png", "outfit": "空姐制服", "exists": false },
+      { "id": "CH_03b", "file": "assets/images/characters/char_yuki_casual.png", "outfit": "便裝", "exists": false },
+      { "id": "CH_03c", "file": "assets/images/characters/char_yuki_yukata.png", "outfit": "浴衣", "exists": false }
+    ],
+    "rebecca": [
+      { "id": "CH_04a", "file": "assets/images/characters/char_rebecca_gala.png", "outfit": "晚禮服", "exists": false },
+      { "id": "CH_04b", "file": "assets/images/characters/char_rebecca_golf.png", "outfit": "高爾夫裝", "exists": false },
+      { "id": "CH_04c", "file": "assets/images/characters/char_rebecca_robe.png", "outfit": "居家絲袍", "exists": false }
+    ]
+  },
+  "ui": [
+    { "id": "UI_01", "file": "assets/images/ui/ui_title_screen.png", "description": "遊戲標題畫面", "exists": true },
+    { "id": "UI_02", "file": "assets/images/ui/ui_main_hub.png", "description": "主畫面/每日行動選擇", "exists": true },
+    { "id": "UI_03", "file": "assets/images/ui/ui_status_panel.png", "description": "角色狀態面板背景", "exists": true },
+    { "id": "UI_04", "file": "assets/images/ui/ui_dialogue_box.png", "description": "對話框", "exists": true },
+    { "id": "UI_05", "file": "assets/images/ui/ui_map_taipei.png", "description": "台北地圖選擇畫面", "exists": true }
+  ]
+}

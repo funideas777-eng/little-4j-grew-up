@@ -1,0 +1,23 @@
+{
+  "name": "little-4j-grew-up",
+  "version": "0.1.0",
+  "description": "小小4J長大了 - 成人養成模擬視覺小說 (Visual Novel / Raising Simulation)",
+  "private": true,
+  "keywords": [
+    "visual-novel",
+    "raising-simulation",
+    "html5-game",
+    "anime",
+    "taipei"
+  ],
+  "author": "funideas",
+  "license": "UNLICENSED",
+  "scripts": {
+    "check-assets": "node scripts/check-assets.js",
+    "dev": "echo 'Game engine not yet implemented'",
+    "build": "echo 'Game engine not yet implemented'"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

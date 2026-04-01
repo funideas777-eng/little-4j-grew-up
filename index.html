@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>小小4J長大了</title>
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+  <div id="game-container">
+    <!-- Title Screen -->
+    <div id="screen-title" class="screen active">
+      <div id="title-bg"></div>
+      <div class="title-content">
+        <h1 class="game-title">小小4J長大了</h1>
+        <p class="game-subtitle">Little 4J Grew Up</p>
+        <div class="title-buttons">
+          <button class="btn-main" onclick="game.newGame()">新遊戲</button>
+          <button class="btn-main" id="btn-continue" onclick="game.loadGame()" style="display:none">繼續遊戲</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hub Screen -->
+    <div id="screen-hub" class="screen">
+      <div id="hub-bg"></div>
+      <div class="hub-header">
+        <div class="day-display">第 <span id="day-num">1</span> 天</div>
+        <div class="month-display">月收入: NT$ <span id="income-display">22,000</span></div>
+        <button class="btn-save-small" onclick="game.saveGame()">存檔</button>
+      </div>
+      <div class="stats-bar">
+        <div class="stat"><span class="stat-icon">💪</span> 體力 <span id="stat-stamina">100</span>/100</div>
+        <div class="stat"><span class="stat-icon">💰</span> 金錢 <span id="stat-money">50,000</span></div>
+        <div class="stat"><span class="stat-icon">✨</span> 魅力 <span id="stat-charm">0</span></div>
+        <div class="stat"><span class="stat-icon">📖</span> 見識 <span id="stat-insight">0</span></div>
+        <div class="stat"><span class="stat-icon">👑</span> 地位 <span id="stat-status">0</span></div>
+      </div>
+      <div class="actions-grid">
+        <button class="action-card" data-action="study" onclick="game.doAction('study')">
+          <div class="action-icon">📚</div>
+          <div class="action-name">投資自己</div>
+          <div class="action-cost">體力-30 💰-5,000</div>
+          <div class="action-gain">見識+5</div>
+        </button>
+        <button class="action-card" data-action="work" onclick="game.doAction('work')">
+          <div class="action-icon">💼</div>
+          <div class="action-name">打工</div>
+          <div class="action-cost">體力-20</div>
+          <div class="action-gain">💰+8,000~15,000</div>
+        </button>
+        <button class="action-card" data-action="cars" onclick="game.doAction('cars')">
+          <div class="action-icon">🚗</div>
+          <div class="action-name">看車/買車</div>
+          <div class="action-cost">體力-10 💰-2,000</div>
+          <div class="action-gain">魅力+8</div>
+        </button>
+        <button class="action-card" data-action="travel" onclick="game.doAction('travel')">
+          <div class="action-icon">✈️</div>
+          <div class="action-name">旅遊</div>
+          <div class="action-cost">💰-10,000~80,000</div>
+          <div class="action-gain">見識+10 體力回滿</div>
+        </button>
+        <button class="action-card locked" data-action="rotary" id="action-rotary" onclick="game.doAction('rotary')">
+          <div class="action-icon">🏛️</div>
+          <div class="action-name">扶輪社</div>
+          <div class="action-cost">體力-15 💰-30,000</div>
+          <div class="action-gain">地位+15</div>
+          <div class="action-lock">需見識≥60 月收入≥80k</div>
+        </button>
+      </div>
+      <div class="affection-bar" id="affection-bar"></div>
+    </div>
+
+    <!-- Dialogue / VN Screen -->
+    <div id="screen-vn" class="screen">
+      <div id="vn-bg" class="vn-background"></div>
+      <div id="vn-cg" class="vn-cg"></div>
+      <div id="vn-dialogue" class="vn-dialogue-box">
+        <div class="vn-name" id="vn-name"></div>
+        <div class="vn-text" id="vn-text"></div>
+        <div class="vn-choices" id="vn-choices"></div>
+        <div class="vn-click-hint" id="vn-hint">▼ 點擊繼續</div>
+      </div>
+    </div>
+
+    <!-- Ending Screen -->
+    <div id="screen-ending" class="screen">
+      <div id="ending-cg" class="ending-cg"></div>
+      <div class="ending-overlay">
+        <h2 id="ending-title" class="ending-title"></h2>
+        <p id="ending-text" class="ending-text"></p>
+        <button class="btn-main" onclick="game.returnToTitle()">回到標題</button>
+      </div>
+    </div>
+
+    <!-- Result popup -->
+    <div id="popup-result" class="popup" style="display:none">
+      <div class="popup-content">
+        <h3 id="popup-title"></h3>
+        <div id="popup-body"></div>
+        <button class="btn-main" onclick="game.closePopup()">確定</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/save.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/engine.js"></script>
+</body>
+</html>

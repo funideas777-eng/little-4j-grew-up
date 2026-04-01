@@ -1,0 +1,66 @@
+{
+  "game": {
+    "title": "小小4J長大了",
+    "titleEn": "Little 4J Grew Up",
+    "version": "0.1.0-alpha",
+    "type": "visual-novel-raising-sim",
+    "platform": "web-html5",
+    "resolution": { "width": 1920, "height": 1080, "aspectRatio": "16:9" },
+    "language": "zh-TW"
+  },
+  "protagonist": {
+    "name": "4J",
+    "stats": {
+      "stamina": { "default": 100, "max": 100 },
+      "charm": { "default": 0, "max": 100 },
+      "insight": { "default": 0, "max": 100 },
+      "status": { "default": 0, "max": 100 },
+      "monthlyIncome": { "default": 22000, "currency": "TWD" }
+    }
+  },
+  "dailyActions": {
+    "act01_study": {
+      "name": "投資自己",
+      "cost": { "stamina": -30, "money": -5000 },
+      "gain": { "insight": 5 },
+      "unlock": "見識≥60 解鎖扶輪社"
+    },
+    "act02_work": {
+      "name": "打工",
+      "cost": { "stamina": -20 },
+      "gain": { "money": [8000, 15000] },
+      "trigger": { "character": "kaoru", "chance": 0.15 }
+    },
+    "act03_cars": {
+      "name": "買車/看車",
+      "cost": { "stamina": -10, "money": -2000 },
+      "gain": { "charm": 8 },
+      "trigger": { "character": "amy", "chance": 0.20 }
+    },
+    "act04_travel": {
+      "name": "旅遊",
+      "cost": { "money": [-10000, -80000] },
+      "gain": { "stamina": "full", "insight": 10 },
+      "trigger": { "character": "yuki", "chance": 0.25 }
+    },
+    "act05_rotary": {
+      "name": "參加扶輪社",
+      "cost": { "stamina": -15, "money": -30000 },
+      "gain": { "status": 15 },
+      "requirements": { "insight": 60, "monthlyIncome": 80000 },
+      "trigger": { "character": "rebecca", "chance": 1.0 }
+    }
+  },
+  "affectionThresholds": {
+    "encounter": 0,
+    "privateDate": 50,
+    "confession": 80,
+    "intimate": 100
+  },
+  "imageGeneration": {
+    "tool": "Google Gemini Pro",
+    "style": "Anime style, semi-realistic, high quality illustration",
+    "account": "funideas777@gmail.com",
+    "namingConvention": "{type}_{character}_{chapter}_{scene}.png"
+  }
+}
