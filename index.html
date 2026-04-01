@@ -3,10 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="screen-orientation" content="landscape">
   <title>小小4J長大了</title>
   <link rel="stylesheet" href="css/game.css">
 </head>
 <body>
+  <!-- Rotate prompt for portrait mode -->
+  <div id="rotate-prompt">
+    <div class="rotate-icon">📱↻</div>
+    <p>請將手機橫放以獲得最佳體驗</p>
+  </div>
+  <!-- Loading overlay -->
+  <div id="loading-overlay">
+    <div class="loading-content">
+      <h2 class="loading-title">載入中...</h2>
+      <div class="loading-bar-outer"><div class="loading-bar-inner" id="loading-bar"></div></div>
+      <p class="loading-text" id="loading-text">準備遊戲資源</p>
+    </div>
+  </div>
   <div id="game-container">
     <!-- Gate Screen (Age Verification) -->
     <div id="screen-gate" class="screen active">

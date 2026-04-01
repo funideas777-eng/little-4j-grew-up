@@ -3,19 +3,19 @@
   "lastUpdated": "2026-04-01",
   "summary": {
     "totalRequired": 78,
-    "totalCompleted": 45,
-    "completionRate": "58%"
+    "totalCompleted": 54,
+    "completionRate": "69%"
   },
   "categories": {
     "scene_cg": {
       "description": "場景CG圖 - 各角色路線劇情插圖",
       "required": 60,
-      "completed": 40,
+      "completed": 49,
       "routes": {
         "kaoru": { "required": 15, "completed": 15, "status": "complete" },
         "amy": { "required": 15, "completed": 15, "status": "complete" },
-        "yuki": { "required": 15, "completed": 10, "status": "partial" },
-        "rebecca": { "required": 15, "completed": 0, "status": "pending" }
+        "yuki": { "required": 15, "completed": 15, "status": "complete" },
+        "rebecca": { "required": 15, "completed": 4, "status": "partial" }
       }
     },
     "character_portrait": {

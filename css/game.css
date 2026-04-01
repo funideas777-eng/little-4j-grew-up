@@ -2,6 +2,39 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif; background: #000; }
 
+/* === Landscape Enforcement === */
+#rotate-prompt {
+  display: none; position: fixed; inset: 0; z-index: 9999;
+  background: #0a0a12;
+  flex-direction: column; align-items: center; justify-content: center;
+  color: #fff; text-align: center; font-size: 1.2rem;
+}
+.rotate-icon { font-size: 4rem; margin-bottom: 1em; animation: rotateAnim 2s ease-in-out infinite; }
+@keyframes rotateAnim { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(90deg); } }
+@media (orientation: portrait) and (max-width: 900px) {
+  #rotate-prompt { display: flex; }
+  #game-container { display: none !important; }
+}
+
+/* === Loading Overlay === */
+#loading-overlay {
+  position: fixed; inset: 0; z-index: 9998;
+  background: #0a0a12;
+  display: flex; align-items: center; justify-content: center;
+}
+#loading-overlay.hidden { display: none; }
+.loading-content { text-align: center; color: #fff; }
+.loading-title { font-size: 1.5rem; color: #ffb0d0; margin-bottom: 1em; }
+.loading-bar-outer {
+  width: 280px; height: 8px; background: rgba(255,255,255,0.15);
+  border-radius: 4px; overflow: hidden; margin: 0 auto 0.8em;
+}
+.loading-bar-inner {
+  height: 100%; width: 0%; background: linear-gradient(90deg, #ff6b9d, #c44dff);
+  border-radius: 4px; transition: width 0.3s;
+}
+.loading-text { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
 /* === Game Container === */
 #game-container {
   position: relative;

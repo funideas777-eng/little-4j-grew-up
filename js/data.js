@@ -70,405 +70,505 @@ const StoryData = {
   },
 
   routes: {
-    // ============================================
-    // KAORU - 小薰 (車展女孩)
-    // ============================================
     kaoru: [
-      // Chapter 1: 命運的展場相遇
-      {
-        title: '命運的展場相遇',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch1_meet.png', description: '展場碰撞瞬間' },
-          { type: 'dialogue', speaker: '', text: '在台北南港展覽館擔任臨時工的你，扛著重物轉過一個角落——' },
-          { type: 'dialogue', speaker: '', text: '砰！撞上了正在補妝的 Show Girl，粉底液灑了一地。' },
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch1_wipe.png', description: '4J用衣服幫她擦' },
-          { type: 'dialogue', speaker: '', text: '你手忙腳亂地用自己的 T-shirt 下擺幫她擦...' },
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch1_laugh.png', description: '小薰笑出來' },
-          { type: 'dialogue', speaker: '小薰', text: '你是白痴嗎？用衣服擦？！...不過，還滿可愛的啦。' },
-          {
-            type: 'choice',
-            choices: [
-              { text: '抱歉！我去幫你買新的！', effect: { affection: 10 } },
-              { text: '能讓這麼漂亮的人笑出來，弄髒衣服也值得。', effect: { affection: 15 }, require: { charm: 20 } },
-              { text: '......', effect: { affection: 3 } },
-            ]
-          },
-          { type: 'dialogue', speaker: '小薰', text: '嗯...你叫什麼名字？下次別再這麼冒失了啦。' },
-          { type: 'dialogue', speaker: '', text: '你和小薰交換了聯絡方式。第一次遇見她——車展中最耀眼的女孩。' },
-        ]
-      },
-      // Chapter 2: 休息室的秘密
-      {
-        title: '休息室的秘密',
-        scenes: [
-          { type: 'dialogue', speaker: '', text: '車展第三天，你又被派到同一個場館。午休時間偷溜到後台找小薰...' },
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch2_cry.png', description: '小薰在道具間哭泣' },
-          { type: 'dialogue', speaker: '', text: '你發現她一個人躲在道具間哭。攝影師對她毛手毛腳，她反抗後被威脅要在業界封殺。' },
-          { type: 'dialogue', speaker: '小薰', text: '每次都這樣...他們只看到我的身體，沒人在乎我在想什麼...' },
-          {
-            type: 'choice',
-            choices: [
-              { text: '走，跟我去找主辦方。妳不用一個人扛。', effect: { affection: 20 } },
-              { text: '我可以幫妳揍他。', effect: { affection: 10 } },
-              { text: '要不...妳就別做這行了？', effect: { affection: -10 } },
-            ]
-          },
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch2_hand.png', description: '4J拉起她的手' },
-          { type: 'dialogue', speaker: '', text: '你二話不說拉著她的手，態度堅定地走出去。' },
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch2_resolve.png', description: '兩人一起去找主辦方' },
-          { type: 'dialogue', speaker: '小薰', text: '謝謝你...你是第一個認真站出來幫我的人。' },
-          { type: 'dialogue', speaker: '', text: '小薰第一次對你卸下心防。' },
-        ]
-      },
-      // Chapter 3: 日落的淡水告白
-      {
-        title: '日落的淡水告白',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch3_tamsui.png', description: '淡水老街約會' },
-          { type: 'dialogue', speaker: '', text: '你們騎機車到淡水老街約會，吃著阿給和魚酥。' },
-          { type: 'dialogue', speaker: '小薰', text: '我其實是單親家庭長大的...做 Show Girl 是為了存錢讓媽媽開一間小花店。' },
-          { type: 'dialogue', speaker: '', text: '你被觸動了——你也是被父親期望著要獨立的人。' },
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch3_sunset.png', description: '漁人碼頭日落告白' },
-          { type: 'dialogue', speaker: '', text: '日落時分，漁人碼頭。海風吹起小薰的長髮，你鼓起勇氣...' },
-          { type: 'dialogue', speaker: '4J', text: '小薰...我知道我現在什麼都不是，只是一個在展場搬箱子的傢伙。但我想認真對待妳。' },
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch3_blush.png', description: '小薰害羞接受' },
-          { type: 'dialogue', speaker: '小薰', text: '你真的很笨耶...但是...我也想被這樣的笨蛋認真對待。' },
-          { type: 'dialogue', speaker: '', text: '夕陽下，你們成為了戀人。' },
-        ]
-      },
-      // Chapter 4: 雨夜的心跳加速
-      {
-        title: '雨夜的心跳加速',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch4_rain.png', description: '雨中奔跑' },
-          { type: 'dialogue', speaker: '', text: '約會回程遇上暴雨，你們狼狽地躲進你的小套房。' },
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch4_tshirt.png', description: '小薰穿著大T-shirt' },
-          { type: 'dialogue', speaker: '', text: '小薰從浴室出來穿著你過大的 T-shirt，空氣中的氣氛突然改變了...' },
-          { type: 'dialogue', speaker: '小薰', text: '...你的衣服好大件...但好溫暖。' },
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch4_gaze.png', description: '兩人在床邊對望' },
-          {
-            type: 'choice',
-            choices: [
-              { text: '那以後...妳的溫暖就讓我來守護。', effect: { affection: 20 } },
-              { text: '妳先睡床，我睡地板。', effect: { affection: 5 } },
-            ]
-          },
-          { type: 'dialogue', speaker: '', text: '窗外的雨聲，成了這個夜晚唯一的背景音樂。' },
-        ]
-      },
-      // Chapter 5: 我的花店與妳
-      {
-        title: '我的花店與妳',
-        scenes: [
-          { type: 'dialogue', speaker: '', text: '一年後——你用存下的錢和家裡工廠的人脈，幫小薰的媽媽圓了花店夢。' },
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch5_shop.png', description: '花店開幕日' },
-          { type: 'dialogue', speaker: '', text: '開幕那天，小薰穿著花店圍裙，眼裡含著淚水。' },
-          { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch5_embrace.png', description: '花香中的擁抱' },
-          { type: 'dialogue', speaker: '小薰', text: '謝謝你...看見真正的我。' },
-          { type: 'ending', image: 'assets/images/scene_kaoru/scene_kaoru_ch5_ending_cg.png',
-            title: '🌸 花與你的未來', text: '你和小薰在花香中擁吻。\n從展場的偶遇，到花店的相守。\n這就是你們的故事。' },
-        ]
-      },
+      { title: '命運的展場相遇', scenes: [
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch1_meet.png' },
+        { type: 'dialogue', speaker: '', text: '台北南港展覽館，你扛著沉重的器材箱穿過人群。汗水順著額頭滑下。' },
+        { type: 'dialogue', speaker: '', text: '轉角處——砰！你整個人撞上了一道紅色的身影。粉底液、刷具散落一地。' },
+        { type: 'dialogue', speaker: '小薰', text: '你在幹嘛啊！？我的粉底液！那可是蘭蔻的耶！' },
+        { type: 'dialogue', speaker: '', text: '她氣得跺腳，但妝容被弄花的臉上帶著一種意外的可愛。' },
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch1_wipe.png' },
+        { type: 'dialogue', speaker: '', text: '你慌張地掏出口袋裡的面紙，結果是一張皺巴巴的收據。更慌了，你直接用 T-shirt 下擺往她臉上擦...' },
+        { type: 'dialogue', speaker: '小薰', text: '等等等等！你用衣服擦我的臉？你是原始人嗎！？' },
+        { type: 'dialogue', speaker: '', text: '但她看著你手忙腳亂的樣子，嘴角不自覺地上揚...' },
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch1_laugh.png' },
+        { type: 'dialogue', speaker: '小薰', text: '噗哈哈哈——你是白痴嗎？用衣服擦？！...不過，還滿可愛的啦。' },
+        { type: 'choice', choices: [
+          { text: '抱歉！我去幫你買新的粉底液！蘭蔻對吧？', effect: { affection: 12 } },
+          { text: '能讓這麼漂亮的人笑出來，弄髒衣服也值得。', effect: { affection: 18 }, require: { charm: 20 } },
+          { text: '......（腦袋一片空白）', effect: { affection: 3 } },
+        ]},
+        { type: 'dialogue', speaker: '小薰', text: '哼...算了啦，反正也快下班了。你是這邊的工讀生？' },
+        { type: 'dialogue', speaker: '', text: '她整理了一下頭髮，從口袋裡掏出一張名片遞給你。' },
+        { type: 'dialogue', speaker: '小薰', text: '我叫小薰。下次搬東西小心一點啦，笨蛋。' },
+        { type: 'choice', choices: [
+          { text: '我叫4J。下次我帶新的粉底液來賠你！', effect: { affection: 8 } },
+          { text: '小薰...好好聽的名字。我是4J。', effect: { affection: 5 } },
+          { text: '（接過名片，手不小心碰到她的指尖）啊，抱歉...', effect: { affection: -2 } },
+        ]},
+        { type: 'dialogue', speaker: '', text: '她轉身走回展場，走了幾步又回頭看了你一眼，嘴角帶著若有似無的微笑。' },
+        { type: 'dialogue', speaker: '', text: '你低頭看著名片——「林小薰 / Show Girl」。心跳有點快。' },
+      ]},
+      { title: '休息室的秘密', scenes: [
+        { type: 'dialogue', speaker: '', text: '車展第三天。你又被派到同一個場館，心裡暗自期待能再見到她。' },
+        { type: 'dialogue', speaker: '', text: '午休時間，你假裝路過後台區域。走廊盡頭的道具間，門沒有關緊。' },
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch2_cry.png' },
+        { type: 'dialogue', speaker: '', text: '透過門縫，你看見小薰蹲在角落，雙手掩面，肩膀微微顫抖。' },
+        { type: 'dialogue', speaker: '小薰', text: '（哽咽）...為什麼每次都這樣...我只是想好好工作而已...' },
+        { type: 'choice', choices: [
+          { text: '（輕輕推門進去）小薰？妳怎麼了？', effect: { affection: 8 } },
+          { text: '（猶豫了一下，但還是走了進去）...那個，我有面紙。', effect: { affection: 5 } },
+          { text: '（假裝沒看到，默默離開）', effect: { affection: -15 } },
+        ]},
+        { type: 'dialogue', speaker: '小薰', text: '你怎麼來了...不要看我這個樣子啦...' },
+        { type: 'dialogue', speaker: '', text: '她擦了擦眼淚，斷斷續續地說出原委——' },
+        { type: 'dialogue', speaker: '小薰', text: '那個攝影師...他說如果我不配合他的「特殊拍攝」，就要在業界封殺我。' },
+        { type: 'dialogue', speaker: '小薰', text: '每次都這樣...他們只看到我的身體，沒有人在乎我在想什麼...' },
+        { type: 'dialogue', speaker: '小薰', text: '我只是想存錢幫媽媽開花店而已...為什麼這麼難？' },
+        { type: 'choice', choices: [
+          { text: '走，跟我去找主辦方。妳不用一個人扛這些。', effect: { affection: 20 } },
+          { text: '那個攝影師叫什麼名字？我去找他理論。', effect: { affection: 10 } },
+          { text: '要不...妳就別做這行了？', effect: { affection: -10 } },
+        ]},
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch2_hand.png' },
+        { type: 'dialogue', speaker: '', text: '你站起身，向她伸出手。她的手冰冰涼涼的，還在微微發抖。' },
+        { type: 'dialogue', speaker: '', text: '你握緊了她的手，態度堅定地說：' },
+        { type: 'dialogue', speaker: '4J', text: '妳的工作是妳的選擇，沒有人有資格用這種方式威脅妳。走吧。' },
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch2_resolve.png' },
+        { type: 'dialogue', speaker: '', text: '你拉著她的手穿過後台走廊。她一開始猶豫，但感受到你堅定的步伐後，默默地跟上了。' },
+        { type: 'dialogue', speaker: '', text: '在主辦方辦公室，你笨拙但認真地替她說明了狀況。主辦方大為震怒，當場撤銷了那個攝影師的通行證。' },
+        { type: 'dialogue', speaker: '小薰', text: '（擦了擦紅紅的眼眶）謝謝你...你是第一個認真站出來幫我的人。' },
+        { type: 'choice', choices: [
+          { text: '以後遇到這種事，隨時找我。', effect: { affection: 8 } },
+          { text: '不用謝。但妳欠我一頓飯喔。', effect: { affection: 5 } },
+        ]},
+        { type: 'dialogue', speaker: '小薰', text: '（破涕為笑）你這個人...真的很奇怪耶。明明是個搬箱子的工讀生，卻比那些西裝筆挺的人還可靠。' },
+      ]},
+      { title: '日落的淡水告白', scenes: [
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch3_tamsui.png' },
+        { type: 'dialogue', speaker: '', text: '一個週末下午，你們騎機車到淡水老街。小薰坐在後座，雙手環住你的腰。' },
+        { type: 'dialogue', speaker: '小薰', text: '這個阿給超好吃的！你要不要吃一口？啊——' },
+        { type: 'dialogue', speaker: '', text: '她把阿給湊到你嘴邊。周圍的路人看著你們，露出會心的微笑。' },
+        { type: 'choice', choices: [
+          { text: '（張嘴吃掉）嗯，真的好吃！妳嘴角有醬汁——', effect: { affection: 8 } },
+          { text: '（害羞地往後退）我、我自己來就好...', effect: { affection: 3 } },
+          { text: '（吃完後也夾一塊給她）來，妳也吃這個。', effect: { affection: 10 } },
+        ]},
+        { type: 'dialogue', speaker: '小薰', text: '你知道嗎...我其實是單親家庭長大的。' },
+        { type: 'dialogue', speaker: '小薰', text: '爸爸在我小學三年級的時候走了。媽媽一個人在市場賣菜把我養大。' },
+        { type: 'dialogue', speaker: '小薰', text: '做 Show Girl 是因為時薪高...我想存錢讓媽媽開一間小花店。她最喜歡花了。' },
+        { type: 'dialogue', speaker: '', text: '你沉默了一會。想起自己也是被父親要求「從零開始歷練」的人。' },
+        { type: 'choice', choices: [
+          { text: '我懂。我也是一個人在努力的。我們很像。', effect: { affection: 10 } },
+          { text: '妳媽媽一定很以妳為傲。', effect: { affection: 8 } },
+          { text: '...花店夢想很棒，我想幫妳。', effect: { affection: 12 } },
+        ]},
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch3_sunset.png' },
+        { type: 'dialogue', speaker: '', text: '日落時分，漁人碼頭。橘紅色的晚霞染紅了整片天空。' },
+        { type: 'dialogue', speaker: '', text: '海風吹起小薰的長髮，金色的光芒勾勒出她的輪廓。你的心跳快得像要衝出胸口。' },
+        { type: 'dialogue', speaker: '4J', text: '小薰...我知道我現在什麼都不是。只是一個在展場搬箱子的傢伙，存款簿上的數字少得可憐。' },
+        { type: 'dialogue', speaker: '4J', text: '但是...我想認真對待妳。不是因為妳漂亮，是因為妳很努力，很善良，很真實。' },
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch3_blush.png' },
+        { type: 'dialogue', speaker: '小薰', text: '你真的很笨耶...在這種地方說這種話，害我都不知道要怎麼回答了...' },
+        { type: 'dialogue', speaker: '小薰', text: '...但是...我也想被這樣的笨蛋認真對待。' },
+        { type: 'dialogue', speaker: '', text: '夕陽下，她的手輕輕放進你的掌心。從這一刻起，你們成為了戀人。' },
+      ]},
+      { title: '雨夜的心跳加速', scenes: [
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch4_rain.png' },
+        { type: 'dialogue', speaker: '', text: '看完電影的回程，天空突然下起暴雨。你們狼狽地衝進你的小套房。' },
+        { type: 'dialogue', speaker: '小薰', text: '嗚...我全身都濕透了...好冷...' },
+        { type: 'dialogue', speaker: '', text: '她的白色上衣被雨水打濕，隱約透出裡面的輪廓。你趕緊移開視線。' },
+        { type: 'choice', choices: [
+          { text: '我去找乾毛巾和衣服給妳！（手忙腳亂地翻櫃子）', effect: { affection: 8 } },
+          { text: '先用這條毛巾。我去外面等妳換衣服。', effect: { affection: 5 } },
+          { text: '（忍不住多看了一眼，然後臉紅）啊...我、衣服！', effect: { affection: 3 } },
+        ]},
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch4_tshirt.png' },
+        { type: 'dialogue', speaker: '', text: '浴室門打開，小薰穿著你那件過大的灰色 T-shirt 走出來。衣服大到蓋過膝蓋，袖子垂到手肘。' },
+        { type: 'dialogue', speaker: '小薰', text: '（拉著衣擺，聲音很小）...你的衣服好大件...但好溫暖。有你的味道。' },
+        { type: 'dialogue', speaker: '', text: '她的長髮微濕，散落在肩上。沒有妝容的素顏，反而更讓你心跳加速。' },
+        { type: 'dialogue', speaker: '', text: '窗外雨聲嘩嘩。她在床邊坐下。你坐在她身旁。空氣彷彿凝固了。' },
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch4_gaze.png' },
+        { type: 'dialogue', speaker: '小薰', text: '（看著你的眼睛）...你的心跳好快。我聽得到。' },
+        { type: 'dialogue', speaker: '4J', text: '妳的也是。' },
+        { type: 'choice', choices: [
+          { text: '那以後...妳的溫暖就讓我來守護。（吻了她）', effect: { affection: 20 } },
+          { text: '妳先睡床，我去睡沙發。（站起身，但被她拉住袖子）', effect: { affection: 8 } },
+        ]},
+        { type: 'dialogue', speaker: '小薰', text: '...笨蛋。不要走。' },
+        { type: 'dialogue', speaker: '', text: '窗外的雨聲，成了這個夜晚最溫柔的背景音樂。' },
+      ]},
+      { title: '我的花店與妳', scenes: [
+        { type: 'dialogue', speaker: '', text: '一年後——你拼命工作存錢，加上家裡工廠的人脈，終於有了一筆啟動資金。' },
+        { type: 'dialogue', speaker: '', text: '你瞞著小薰，花了三個月找店面、裝潢、進花材。今天，是開幕日。' },
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch5_shop.png' },
+        { type: 'dialogue', speaker: '', text: '小薰被你蒙著眼帶到一間漂亮的小花店門口。' },
+        { type: 'dialogue', speaker: '4J', text: '好了，可以張開眼睛了。' },
+        { type: 'dialogue', speaker: '小薰', text: '（睜眼）...這、這是...不會吧...？' },
+        { type: 'dialogue', speaker: '', text: '招牌上寫著「小薰花坊」，四個溫暖的手寫字。門口擺滿了她最愛的向日葵。' },
+        { type: 'dialogue', speaker: '小薰', text: '（眼眶泛紅）你...你什麼時候...這是怎麼回事...？' },
+        { type: 'choice', choices: [
+          { text: '妳不是說想幫媽媽開花店嗎？夢想不用等，現在就開始。', effect: { affection: 15 } },
+          { text: '驚喜。裡面還有更多驚喜喔。（推開門）', effect: { affection: 12 } },
+        ]},
+        { type: 'dialogue', speaker: '', text: '花店裡面，小薰的媽媽已經穿著圍裙在整理花材了。看到女兒的那一刻，母女倆抱在一起哭了。' },
+        { type: 'dialogue', speaker: '小薰', text: '（抱住你，眼淚不停地流）你這個大笨蛋...我都不知道該說什麼了...' },
+        { type: 'cg', image: 'assets/images/scene_kaoru/scene_kaoru_ch5_embrace.png' },
+        { type: 'dialogue', speaker: '小薰', text: '謝謝你...看見真正的我。不是展場裡的花瓶，而是...真正的我。' },
+        { type: 'dialogue', speaker: '4J', text: '我看到的一直都是真正的妳啊。那個為了媽媽的夢想拼命努力的女孩。' },
+        { type: 'ending', image: 'assets/images/scene_kaoru/scene_kaoru_ch5_ending_cg.png',
+          title: '🌸 花與你的未來', text: '你和小薰在花香中擁吻。\n從展場的偶遇，到花店的相守。\n向日葵永遠朝著陽光生長，就像她，永遠朝著你微笑。' },
+      ]},
     ],
 
-    // ============================================
-    // AMY - 汽車女銷售
-    // ============================================
     amy: [
-      // Chapter 1: 展示間的女王
-      {
-        title: '展示間的女王',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch1_showroom.png', description: '展示間初遇' },
-          { type: 'dialogue', speaker: '', text: '你走進 BMW 展示間，只是想過過眼癮。' },
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch1_explain.png', description: 'Amy專業介紹' },
-          { type: 'dialogue', speaker: 'Amy', text: '先生您好，請問您今天想了解哪款車型？' },
-          { type: 'dialogue', speaker: '', text: '她一眼就看出你「只是來看看的」，但專業地沒有怠慢。' },
-          {
-            type: 'choice',
-            choices: [
-              { text: '其實我只是來看看的，但妳介紹得太專業了。', effect: { affection: 10 } },
-              { text: '比起車，我對妳更有興趣。', effect: { affection: -15 } },
-              { text: '我想了解一下 M3 的渦輪配置。', effect: { affection: 15 }, require: { insight: 40 } },
-            ]
-          },
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch1_cold.png', description: 'Amy的距離感' },
-          { type: 'dialogue', speaker: '', text: 'Amy 的眼神始終帶著距離感——她見過太多只想搭訕的男客人。' },
-          { type: 'dialogue', speaker: 'Amy', text: '歡迎下次再來。這是我的名片。' },
-        ]
-      },
-      // Chapter 2: 賽道上的真面目
-      {
-        title: '賽道上的真面目',
-        scenes: [
-          { type: 'dialogue', speaker: 'Amy', text: '週末有個 VIP 試駕活動，你要來嗎？' },
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch2_racesuit.png', description: 'Amy換上賽車服' },
-          { type: 'dialogue', speaker: '', text: '在大鵬灣賽車場，西裝革履的 Amy 突然換上了賽車服——原來她是業餘賽車手！' },
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch2_driving.png', description: '賽道狂飆' },
-          { type: 'dialogue', speaker: '', text: '她載著你在賽道上飆到 200km/h，你嚇得臉色發白卻又興奮不已！' },
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch2_smile.png', description: 'Amy的真心笑容' },
-          { type: 'dialogue', speaker: 'Amy', text: '下班後的我跟上班完全不同喔。還受得了嗎？' },
-          {
-            type: 'choice',
-            choices: [
-              { text: '受得了！下次我來開，換妳在副駕嚇得尖叫！', effect: { affection: 20 } },
-              { text: '妳認真開車的樣子...超帥的。', effect: { affection: 15 } },
-            ]
-          },
-          { type: 'dialogue', speaker: '', text: '第一次看到 Amy 不是營業用的笑容。' },
-        ]
-      },
-      // Chapter 3: 深夜加班的脆弱
-      {
-        title: '深夜加班的脆弱',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch3_overtime.png', description: '深夜獨自加班' },
-          { type: 'dialogue', speaker: '', text: '深夜路過展示間，看到裡面還亮著燈。Amy 一個人坐在辦公室裡。' },
-          { type: 'dialogue', speaker: '', text: '這個月她業績墊底——因為拒絕了總經理「陪客戶應酬」的要求。' },
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch3_comfort.png', description: '4J帶宵夜來' },
-          { type: 'dialogue', speaker: '', text: '你默默買了雞排和珍奶過去陪她。' },
-          { type: 'dialogue', speaker: 'Amy', text: '你知道嗎，這個行業...女生要賣車，不是只賣車。' },
-          { type: 'dialogue', speaker: '4J', text: '那就用實力讓他們閉嘴。妳比任何人都專業。' },
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch3_vulnerable.png', description: 'Amy卸下防備' },
-          { type: 'dialogue', speaker: 'Amy', text: '...謝了，雞排還不錯。' },
-          { type: 'dialogue', speaker: '', text: '第一次看到 Amy 脫下套裝外套、拿掉眼鏡的疲憊模樣。' },
-        ]
-      },
-      // Chapter 4: 試車的盡頭是星空
-      {
-        title: '試車的盡頭是星空',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch4_convertible.png', description: '敞篷車夜景' },
-          { type: 'dialogue', speaker: '', text: 'Amy 拿到新款敞篷車的試駕鑰匙，邀你晚上開到陽明山。' },
-          { type: 'dialogue', speaker: '', text: '車停在可以俯瞰台北夜景的秘密景點，兩人把車頂打開躺著看星星。' },
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch4_moonlight.png', description: '月光下的Amy' },
-          { type: 'dialogue', speaker: 'Amy', text: '我從小被期待要當醫生，卻偷偷愛上了機械和速度。' },
-          { type: 'dialogue', speaker: '4J', text: '那我們很像，都在走自己選的路。' },
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch4_intimate.png', description: '親密時刻' },
-          {
-            type: 'choice',
-            choices: [
-              { text: '（握住她的手）這條路，一起走。', effect: { affection: 20 } },
-              { text: '（靜靜看著她）...妳眼睛裡有星星。', effect: { affection: 15 } },
-            ]
-          },
-          { type: 'dialogue', speaker: '', text: '月光下，Amy 側過頭看著你，眼睛閃著光。' },
-        ]
-      },
-      // Chapter 5: 並肩馳騁
-      {
-        title: '並肩馳騁',
-        scenes: [
-          { type: 'dialogue', speaker: '', text: '半年後——Amy 辭職開了自己的改裝車店。' },
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch5_shop.png', description: '改裝車店開幕' },
-          { type: 'dialogue', speaker: '', text: '你用家族工廠的金屬加工技術成為她的合作夥伴。' },
-          { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch5_keychain.png', description: '鑰匙項鍊' },
-          { type: 'dialogue', speaker: 'Amy', text: '這是我們事業的鑰匙，也是我的心。' },
-          { type: 'ending', image: 'assets/images/scene_amy/scene_amy_ch5_ending_cg.png',
-            title: '🏎️ 並肩馳騁', text: 'Amy 把車鑰匙項鍊掛在你脖子上。\n從展示間的距離感，到並肩創業。\n引擎聲中，是你們的未來。' },
-        ]
-      },
+      { title: '展示間的女王', scenes: [
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch1_showroom.png' },
+        { type: 'dialogue', speaker: '', text: '信義區某高級車品牌展示間。大理石地板映出天花板的水晶燈光。你推開玻璃門，一陣冷氣迎面撲來。' },
+        { type: 'dialogue', speaker: '', text: '你只是想過過眼癮。然而——' },
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch1_explain.png' },
+        { type: 'dialogue', speaker: 'Amy', text: '先生您好，歡迎光臨。請問您今天想了解哪款車型？' },
+        { type: 'dialogue', speaker: '', text: '一位穿著合身黑色套裝的女性走過來。高跟鞋在大理石地板上敲出清脆的節奏。知性眼鏡後面是一雙犀利又好看的眼睛。' },
+        { type: 'dialogue', speaker: '', text: '她一眼就看出你「只是來看看的」——你那雙球鞋和背包出賣了你的消費能力。但她的態度依然專業到無可挑剔。' },
+        { type: 'choice', choices: [
+          { text: '其實我只是來看看的，但妳介紹得太專業了，我真的學到很多。', effect: { affection: 10 } },
+          { text: '比起車，我對妳更有興趣。', effect: { affection: -15 } },
+          { text: '我想了解 M3 的渦輪配置和直列六缸的輸出曲線。', effect: { affection: 18 }, require: { insight: 40 } },
+        ]},
+        { type: 'dialogue', speaker: 'Amy', text: '（微微挑眉）你懂車？還是Google來的？' },
+        { type: 'dialogue', speaker: '', text: '她的語氣帶著一點點好奇——這跟平常遇到的搭訕客完全不同。' },
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch1_cold.png' },
+        { type: 'dialogue', speaker: 'Amy', text: '不管怎樣，歡迎下次再來。這是我的名片。' },
+        { type: 'dialogue', speaker: '', text: '她遞出名片時，眼神恢復了那層專業的距離感。' },
+        { type: 'choice', choices: [
+          { text: '謝謝。下次我會帶著更多問題來的。（認真）', effect: { affection: 8 } },
+          { text: '等我存夠錢，第一台車一定找妳買。', effect: { affection: 5 } },
+          { text: '（接過名片，轉身走出展示間。心想：好厲害的女生。）', effect: { affection: 3 } },
+        ]},
+        { type: 'dialogue', speaker: '', text: '名片上的頭銜是「資深業務顧問」。你把它仔細收進皮夾裡。' },
+      ]},
+      { title: '賽道上的真面目', scenes: [
+        { type: 'dialogue', speaker: 'Amy', text: '（傳訊息）週末大鵬灣有個品牌 VIP 試駕活動，我多一張入場券。你要來嗎？' },
+        { type: 'dialogue', speaker: '', text: '你到了現場才發現——這不是什麼悠閒的試駕體驗。' },
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch2_racesuit.png' },
+        { type: 'dialogue', speaker: '', text: 'Amy 從更衣室走出來，脫掉了套裝，換上了一身白紅色的賽車服。馬尾高高束起，拿掉了眼鏡，眼神完全不同了。' },
+        { type: 'dialogue', speaker: 'Amy', text: '（自信地笑）嚇到了？上班是上班，下班歸下班。上車吧。' },
+        { type: 'choice', choices: [
+          { text: '等等...妳會開賽車？！', effect: { affection: 5 } },
+          { text: '（默默繫好安全帶，做好心理準備）', effect: { affection: 8 } },
+          { text: '酷斃了！我一直想坐賽車！', effect: { affection: 10 } },
+        ]},
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch2_driving.png' },
+        { type: 'dialogue', speaker: '', text: '引擎轟鳴。她一腳油門踩到底——時速 180、200、220！你被 G 力壓在座椅上，嚇得指甲掐進扶手裡。' },
+        { type: 'dialogue', speaker: '', text: '但你從副駕看去，Amy 的側臉是你見過最專注、最帥氣的畫面。她的嘴角帶著你在展示間從未見過的笑容。' },
+        { type: 'dialogue', speaker: '', text: '三圈跑完。你雙腿發軟地從車裡爬出來。' },
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch2_smile.png' },
+        { type: 'dialogue', speaker: 'Amy', text: '（把安全帽甩下，馬尾散開，靠在車門上）下班後的我跟上班完全不同喔。還受得了嗎？' },
+        { type: 'choice', choices: [
+          { text: '受得了！下次我來開，換妳在副駕嚇得尖叫！', effect: { affection: 20 } },
+          { text: '妳認真開車的樣子...超帥的。比展示間裡帥一百倍。', effect: { affection: 15 } },
+          { text: '（腿還在抖）能...能再來一圈嗎？', effect: { affection: 12 } },
+        ]},
+        { type: 'dialogue', speaker: 'Amy', text: '（露出第一個不是營業用的笑容）你這個人...還挺有意思的。' },
+      ]},
+      { title: '深夜加班的脆弱', scenes: [
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch3_overtime.png' },
+        { type: 'dialogue', speaker: '', text: '深夜十一點。你路過展示間，裡面還亮著燈。透過玻璃，你看到 Amy 獨自坐在辦公室裡。' },
+        { type: 'dialogue', speaker: '', text: '套裝外套搭在椅背上，眼鏡摘了下來，她正揉著太陽穴。桌上堆著報表和空咖啡罐。' },
+        { type: 'choice', choices: [
+          { text: '（去附近買了雞排和珍奶，敲了敲展示間的玻璃門）', effect: { affection: 12 } },
+          { text: '（傳訊息）還在加班？需要我帶點吃的過去嗎？', effect: { affection: 8 } },
+          { text: '（猶豫了一下，但覺得太晚了打擾不好...走了）', effect: { affection: -5 } },
+        ]},
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch3_comfort.png' },
+        { type: 'dialogue', speaker: 'Amy', text: '（看到你提著宵夜站在門口）...你怎麼知道我在這？' },
+        { type: 'dialogue', speaker: '4J', text: '路過看到燈還亮著。吃了嗎？' },
+        { type: 'dialogue', speaker: '', text: '她沉默了一會，接過雞排，咬了一口。然後開始說——' },
+        { type: 'dialogue', speaker: 'Amy', text: '這個月業績墊底了。不是因為我賣不掉車...是因為我拒絕了。' },
+        { type: 'dialogue', speaker: 'Amy', text: '總經理說有個大客戶要「應酬」。你懂那種應酬吧？女業務被灌酒、被摟腰、被「不小心」碰到的那種。' },
+        { type: 'dialogue', speaker: 'Amy', text: '你知道嗎，這個行業...女生要賣車，不是只賣車。' },
+        { type: 'choice', choices: [
+          { text: '那就用實力讓他們閉嘴。妳比任何人都專業，那些靠應酬的人遲早會被淘汰。', effect: { affection: 15 } },
+          { text: '如果妳想離開，我支持妳。妳值得更好的地方。', effect: { affection: 10 } },
+          { text: '...要不要我去找那個總經理？', effect: { affection: 5 } },
+        ]},
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch3_vulnerable.png' },
+        { type: 'dialogue', speaker: 'Amy', text: '（眼眶微紅，拿起珍奶喝了一口）...謝了。雞排還不錯。' },
+        { type: 'dialogue', speaker: '', text: '這是你第一次看到 Amy 脫下套裝外套、拿掉眼鏡、頭髮有點亂的疲憊模樣。' },
+        { type: 'dialogue', speaker: '', text: '也是你第一次覺得——她真的好美。不是展示間裡那種完美的美，而是脆弱的、真實的美。' },
+      ]},
+      { title: '試車的盡頭是星空', scenes: [
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch4_convertible.png' },
+        { type: 'dialogue', speaker: 'Amy', text: '拿到了新款敞篷車的試駕鑰匙。晚上有空嗎？帶你去一個秘密景點。' },
+        { type: 'dialogue', speaker: '', text: '陽明山。一個能俯瞰整個台北夜景的隱密彎道。Amy 把車頂收起，引擎熄滅。' },
+        { type: 'dialogue', speaker: '', text: '城市的燈火在腳下閃爍，頭頂是滿天星斗。你們就這樣躺在真皮座椅上，看著天空。' },
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch4_moonlight.png' },
+        { type: 'dialogue', speaker: 'Amy', text: '你知道嗎...我小時候想當的其實不是賣車的。' },
+        { type: 'dialogue', speaker: 'Amy', text: '我爸媽都是醫生。他們從小就把我的人生規劃好了——念醫學院、考住院醫師、在大醫院出人頭地。' },
+        { type: 'dialogue', speaker: 'Amy', text: '但我偷偷愛上了機械。高中的時候去了一次賽車場，從那之後就回不去了。' },
+        { type: 'dialogue', speaker: 'Amy', text: '為了這個，我跟我爸冷戰了三年。到現在過年都不太講話。' },
+        { type: 'choice', choices: [
+          { text: '那我們很像。都在走自己選的路，就算全世界反對。', effect: { affection: 15 } },
+          { text: '妳爸遲早會理解的。當他看到妳開車的眼神，一定會。', effect: { affection: 10 } },
+          { text: '（默默握住她的手，什麼都沒說）', effect: { affection: 12 } },
+        ]},
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch4_intimate.png' },
+        { type: 'dialogue', speaker: '', text: 'Amy 側過頭看著你。月光映在她的臉上，眼睛裡有星星在閃。' },
+        { type: 'dialogue', speaker: 'Amy', text: '（輕聲）你知道嗎...你是第一個聽我說完這些話，卻沒有試圖「修正」我的人。' },
+        { type: 'choice', choices: [
+          { text: '（手指穿過她的髮絲）這條路，我陪妳走。', effect: { affection: 20 } },
+          { text: '妳不需要被修正。妳本來就是對的。', effect: { affection: 15 } },
+        ]},
+        { type: 'dialogue', speaker: '', text: '城市的燈火在遠方閃爍。她的嘴唇嚐起來有一點點紅酒的味道。' },
+      ]},
+      { title: '並肩馳騁', scenes: [
+        { type: 'dialogue', speaker: '', text: '半年後——Amy 遞了辭呈。不是因為逃避，而是因為有了更好的計畫。' },
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch5_shop.png' },
+        { type: 'dialogue', speaker: '', text: '一間工業風的改裝車庫在八德路開幕了。招牌上寫著「A&J Performance」。' },
+        { type: 'dialogue', speaker: 'Amy', text: '你的家族工廠負責金屬零件，我負責車輛改裝和業務。天作之合，不是嗎？' },
+        { type: 'choice', choices: [
+          { text: '最完美的合夥人，也是最完美的搭檔。', effect: { affection: 10 } },
+          { text: '等我們做大了，開一支自己的車隊！', effect: { affection: 12 } },
+        ]},
+        { type: 'cg', image: 'assets/images/scene_amy/scene_amy_ch5_keychain.png' },
+        { type: 'dialogue', speaker: '', text: 'Amy 從口袋裡拿出一條項鍊——吊墜是一把精緻的小鑰匙。' },
+        { type: 'dialogue', speaker: 'Amy', text: '這是我們事業的鑰匙...也是我的心。戴上它。' },
+        { type: 'dialogue', speaker: 'Amy', text: '從今以後，不管跑多快，你都在我的副駕。' },
+        { type: 'ending', image: 'assets/images/scene_amy/scene_amy_ch5_ending_cg.png',
+          title: '🏎️ 並肩馳騁', text: 'Amy 把車鑰匙項鍊掛在你脖子上。\n從展示間的距離感，到並肩創業的夥伴。\n引擎聲中，是你們的未來——永遠全速前進。' },
+      ]},
     ],
 
-    // ============================================
-    // YUKI - 空姐
-    // ============================================
     yuki: [
-      // Chapter 1: 三萬英尺的微笑
-      {
-        title: '三萬英尺的微笑',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch1_cabin.png', description: '商務艙初遇' },
-          { type: 'dialogue', speaker: '', text: '你第一次搭商務艙出國，Yuki 是負責你那區的空服員。' },
-          { type: 'dialogue', speaker: '', text: '你不會用商務艙的座椅調整按鈕，Yuki 彎下腰幫你調整時，一縷髮絲掃過你的臉頰。' },
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch1_smile.png', description: 'Yuki的服務微笑' },
-          { type: 'dialogue', speaker: 'Yuki', text: '先生，需要幫您調整座椅嗎？' },
-          {
-            type: 'choice',
-            choices: [
-              { text: '謝謝...對了，妳的中文說得好好，在台灣長大的嗎？', effect: { affection: 10 } },
-              { text: '妳的香水好好聞...啊不是，我是說謝謝！', effect: { affection: 8 } },
-              { text: '可以給我妳的 LINE 嗎？', effect: { affection: -5 } },
-            ]
-          },
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch1_chat.png', description: '短暫聊天' },
-          { type: 'dialogue', speaker: 'Yuki', text: '我媽媽是台灣人，爸爸是日本人。所以中文有一點點腔調呢。' },
-          { type: 'dialogue', speaker: '', text: '飛行途中 Yuki 特別多來了幾次。你的心跳漏了一拍。' },
-        ]
-      },
-      // Chapter 2: 東京轉機的巧遇
-      {
-        title: '東京轉機的巧遇',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch2_casual.png', description: '便裝的Yuki' },
-          { type: 'dialogue', speaker: '', text: '成田機場轉機，候機室裡巧遇剛下班換了便裝的 Yuki。' },
-          { type: 'dialogue', speaker: '', text: '制服下的她穿著簡約的白色連衣裙，放下的長黑髮讓你幾乎認不出來。' },
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch2_ramen.png', description: '機場拉麵店' },
-          { type: 'dialogue', speaker: '', text: '兩人一起在機場拉麵店吃了一碗拉麵。' },
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch2_story.png', description: 'Yuki述說身世' },
-          { type: 'dialogue', speaker: 'Yuki', text: '爸爸媽媽離婚後...我選擇當空姐，在天上尋找屬於自己的地方。' },
-          { type: 'dialogue', speaker: 'Yuki', text: '不屬於台灣，也不完全屬於日本...但在飛機上，我哪裡都可以去。' },
-          { type: 'dialogue', speaker: '', text: 'Yuki 看著窗外的飛機，眼神中帶著溫柔的寂寞。' },
-        ]
-      },
-      // Chapter 3: 京都的雨中漫步
-      {
-        title: '京都的雨中漫步',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch3_yukata.png', description: '浴衣漫步嵐山' },
-          { type: 'dialogue', speaker: '', text: 'Yuki 休假三天，邀你到京都遊玩。嵐山竹林，穿著浴衣漫步。' },
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch3_torii.png', description: '鳥居下躲雨' },
-          { type: 'dialogue', speaker: '', text: '在一座小神社前突然下雨，你們躲在鳥居下。' },
-          { type: 'dialogue', speaker: 'Yuki', text: '和你在一起的時候，我不想飛了。' },
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch3_sleeve.png', description: '用袖子擋雨' },
-          {
-            type: 'choice',
-            choices: [
-              { text: '（用浴衣袖子幫她擋雨）那就停下來，在我身邊。', effect: { affection: 20 } },
-              { text: '京都的雨也很美...因為有妳在。', effect: { affection: 15 } },
-            ]
-          },
-          { type: 'dialogue', speaker: '', text: '她靠在你肩上，雨聲成了最好的背景音樂。' },
-        ]
-      },
-      // Chapter 4: 溫泉旅館的夜
-      {
-        title: '溫泉旅館的夜',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch4_onsen.png', description: '溫泉場景' },
-          { type: 'dialogue', speaker: '', text: '京都旅行最後一晚，兩人入住傳統溫泉旅館。' },
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch4_yukata_room.png', description: '旅館房間' },
-          { type: 'dialogue', speaker: '', text: '泡完湯，在榻榻米上喝著冰啤酒看庭院月色。' },
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch4_approach.png', description: 'Yuki靠近' },
-          { type: 'dialogue', speaker: 'Yuki', text: '4J...今晚不要讓我一個人。' },
-          {
-            type: 'choice',
-            choices: [
-              { text: '（輕輕握住她的手）我在這裡。', effect: { affection: 20 } },
-              { text: '（為她披上外套）今晚，明天，以後都是。', effect: { affection: 15 } },
-            ]
-          },
-          { type: 'dialogue', speaker: '', text: '窗外是日式庭園的蟲鳴和流水聲...' },
-        ]
-      },
-      // Chapter 5: 天空與大地之間
-      {
-        title: '天空與大地之間',
-        scenes: [
-          { type: 'dialogue', speaker: '', text: 'Yuki 決定從國際線轉調國內線，這樣她可以每天回到你身邊。' },
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch5_airport.png', description: '機場接機' },
-          { type: 'dialogue', speaker: '', text: '松山機場，你拿著一束白百合等她下班。' },
-          { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch5_reunion.png', description: '擁抱重逢' },
-          { type: 'dialogue', speaker: 'Yuki', text: '我回來了。' },
-          { type: 'dialogue', speaker: '4J', text: '歡迎回來。' },
-          { type: 'ending', image: 'assets/images/scene_yuki/scene_yuki_ch5_ending_cg.png',
-            title: '✈️ 天空與大地之間', text: 'Yuki 從空橋走出來的那一刻，像個小女孩一樣跑了過來。\n天空是她的翅膀，而你是她的家。\n再也不用一個人飛翔。' },
-        ]
-      },
+      { title: '三萬英尺的微笑', scenes: [
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch1_cabin.png' },
+        { type: 'dialogue', speaker: '', text: '你第一次搭商務艙——用了大半積蓄的奢侈。寬敞的座椅讓你坐得有點不自在。' },
+        { type: 'dialogue', speaker: '', text: '你按了半天座椅旁邊的按鈕，椅背不但沒躺平，反而把腿部抬了起來，姿勢越來越滑稽。' },
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch1_smile.png' },
+        { type: 'dialogue', speaker: 'Yuki', text: '（彎下腰，微笑）先生，需要幫您調整座椅嗎？是這個按鈕。' },
+        { type: 'dialogue', speaker: '', text: '她彎腰的瞬間，一縷黑髮從耳邊滑落，掃過你的臉頰。空氣中有淡淡的茉莉花香。' },
+        { type: 'choice', choices: [
+          { text: '謝謝...對了，妳的中文說得好好，是在台灣長大的嗎？', effect: { affection: 10 } },
+          { text: '妳的香水好好聞...啊不是！我是說——謝謝！', effect: { affection: 8 } },
+          { text: '可以給我妳的 LINE 嗎？', effect: { affection: -5 } },
+        ]},
+        { type: 'dialogue', speaker: 'Yuki', text: '（輕聲笑了笑）我媽媽是台灣人，爸爸是日本人。所以中文有一點點腔調呢。您聽得出來嗎？' },
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch1_chat.png' },
+        { type: 'dialogue', speaker: '', text: '飛行途中，Yuki 特別多來了幾次你的座位區域。每次經過都會多看你一眼。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '先生，需要毛毯嗎？機艙有點涼。' },
+        { type: 'choice', choices: [
+          { text: '好的，謝謝。對了，我叫4J，不用叫我先生啦。', effect: { affection: 8 } },
+          { text: '不用毛毯，但如果可以的話...降落前能再聊幾句嗎？', effect: { affection: 6 } },
+          { text: '（微笑搖頭）謝謝，不需要。', effect: { affection: 3 } },
+        ]},
+        { type: 'dialogue', speaker: '', text: '飛機降落前，Yuki 遞給你一張手寫的小紙條：「謝謝你今天讓這趟飛行變得特別。—Yuki」' },
+        { type: 'dialogue', speaker: '', text: '紙條的角落畫了一架小小的飛機。你的心跳漏了一拍。' },
+      ]},
+      { title: '東京轉機的巧遇', scenes: [
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch2_casual.png' },
+        { type: 'dialogue', speaker: '', text: '成田機場候機室。你正在便利商店挑飯糰，一個穿著白色連衣裙的女生在你身後輕聲說——' },
+        { type: 'dialogue', speaker: 'Yuki', text: '推薦鮭魚口味的。那個鮪魚的不好吃。' },
+        { type: 'dialogue', speaker: '', text: '你回頭一看——長黑髮披散下來，沒有制服的她簡直像另一個人。' },
+        { type: 'choice', choices: [
+          { text: 'Yuki！？我差點認不出來妳！好、好漂亮...', effect: { affection: 10 } },
+          { text: '妳放下頭髮的樣子完全不一樣了。好好看。', effect: { affection: 12 } },
+          { text: '哦...妳也在轉機？要不要一起吃飯？', effect: { affection: 8 } },
+        ]},
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch2_ramen.png' },
+        { type: 'dialogue', speaker: '', text: '機場拉麵店。兩碗味噌拉麵，熱氣騰騰。Yuki 吃拉麵的樣子意外地可愛。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '（吸了一口麵）你知道嗎，日本人吃拉麵是要發出聲音的，這樣才表示好吃。' },
+        { type: 'dialogue', speaker: '', text: '她示範性地發出「嗦——」的聲音，然後被自己逗笑了。' },
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch2_story.png' },
+        { type: 'dialogue', speaker: '', text: '吃完拉麵後，你們坐在候機室落地窗前。夕陽染紅了停機坪。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '爸爸媽媽在我十歲的時候離婚了。媽媽帶我回台灣，爸爸留在東京。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '在台灣，同學說我是「日本人」。在日本，親戚說我是「外國人」。哪裡都不完全屬於。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '所以我選擇當空姐。在天上...我哪裡都可以去，也哪裡都不用屬於。' },
+        { type: 'choice', choices: [
+          { text: '那就屬於我吧。（認真地看著她）', effect: { affection: 15 }, require: { charm: 30 } },
+          { text: '妳不需要屬於任何地方。妳就是妳。', effect: { affection: 12 } },
+          { text: '...聽起來很孤單。但至少現在，妳不是一個人坐在這裡。', effect: { affection: 10 } },
+        ]},
+        { type: 'dialogue', speaker: 'Yuki', text: '（看著窗外的飛機，嘴角帶著溫柔的弧度）...你這個人，話不多，但每句都說在心裡。' },
+      ]},
+      { title: '京都的雨中漫步', scenes: [
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch3_yukata.png' },
+        { type: 'dialogue', speaker: '', text: 'Yuki 休假三天，邀你到京都。嵐山竹林裡，陽光透過高聳的竹子灑下斑駁的光影。' },
+        { type: 'dialogue', speaker: '', text: '穿著浴衣的 Yuki 像是從日本畫裡走出來的人。淺藍色花紋，黑髮半挽，步履輕盈。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '你穿浴衣的樣子...（偷笑）...很努力呢。腰帶綁反了喔。' },
+        { type: 'choice', choices: [
+          { text: '妳來幫我綁嘛！（轉身面對她）', effect: { affection: 10 } },
+          { text: '（故意綁更歪）這樣呢？更有個性吧？', effect: { affection: 8 } },
+          { text: '反的才帥啊！台灣style！', effect: { affection: 5 } },
+        ]},
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch3_torii.png' },
+        { type: 'dialogue', speaker: '', text: '在一座小神社前，天空突然暗了下來。「啪嗒」——雨滴落在石板上，越來越密。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '啊，下雨了！快躲到鳥居下面！' },
+        { type: 'dialogue', speaker: '', text: '紅色的鳥居勉強遮住兩個人的範圍。你們肩並肩站著，雨幕在四周形成一道水簾。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '（閉上眼睛，聽著雨聲）...好安靜。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '和你在一起的時候...我不想飛了。' },
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch3_sleeve.png' },
+        { type: 'choice', choices: [
+          { text: '（用浴衣的寬袖幫她擋雨，把她拉進懷裡）那就別飛了。停在我身邊。', effect: { affection: 20 } },
+          { text: '京都的雨也很美。因為有妳在身邊。', effect: { affection: 15 } },
+          { text: '（默默脫下外面的羽織蓋在她頭上）別感冒了。', effect: { affection: 12 } },
+        ]},
+        { type: 'dialogue', speaker: '', text: '她靠在你肩上。雨聲、蟲鳴、遠處寺廟的鐘聲——世界好像只剩下你們兩個人。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '（輕聲，用日文）好きだよ。' },
+        { type: 'dialogue', speaker: '', text: '你不懂日文，但你聽懂了她的心。' },
+      ]},
+      { title: '溫泉旅館的夜', scenes: [
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch4_onsen.png' },
+        { type: 'dialogue', speaker: '', text: '京都旅行最後一晚。傳統日式溫泉旅館，木造的走廊散發著檜木的清香。' },
+        { type: 'dialogue', speaker: '', text: '露天溫泉的蒸氣在月光下繚繞。你泡在熱水裡，看著頭頂的星空，腦海裡全是她。' },
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch4_yukata_room.png' },
+        { type: 'dialogue', speaker: '', text: '回到房間，Yuki 已經換好了旅館的白色浴衣。頭髮微濕，臉頰因為溫泉而泛著粉紅。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '（坐在榻榻米上，拿著一罐啤酒）要喝嗎？買了兩罐。' },
+        { type: 'dialogue', speaker: '', text: '庭院裡的月光透過紙窗灑進來。蟲鳴和遠處的流水聲是唯一的背景音。' },
+        { type: 'choice', choices: [
+          { text: '（坐在她旁邊，碰杯）乾杯。今天真的很開心。', effect: { affection: 8 } },
+          { text: '（注意到她臉紅紅的）...妳臉好紅。是溫泉泡太久了？', effect: { affection: 5 } },
+        ]},
+        { type: 'dialogue', speaker: 'Yuki', text: '（喝了一口啤酒，看著庭院的月亮）你知道嗎...我最害怕的不是孤獨。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '是好不容易遇到一個人，卻因為我的班表、我的飛行...最後又失去。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '所以我一直告訴自己不要太靠近任何人。但是你...' },
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch4_approach.png' },
+        { type: 'dialogue', speaker: 'Yuki', text: '（靠近你，聲音很輕）4J...今晚不要讓我一個人。' },
+        { type: 'choice', choices: [
+          { text: '（輕輕握住她的手，十指交扣）我在這裡。哪裡都不去。', effect: { affection: 20 } },
+          { text: '（為她披上外套，把她擁入懷中）今晚，明天，以後都是。', effect: { affection: 18 } },
+        ]},
+        { type: 'dialogue', speaker: '', text: '窗外的月光灑滿整個房間。她的嘴唇微涼，帶著一點啤酒的苦味和溫泉的硫磺香。' },
+        { type: 'dialogue', speaker: '', text: '蟲鳴和流水聲漸漸遠去，世界安靜得只剩下兩顆心跳的聲音。' },
+      ]},
+      { title: '天空與大地之間', scenes: [
+        { type: 'dialogue', speaker: '', text: '三個月後。Yuki 傳來一則訊息：「我做了一個決定。明天在松山機場等我。」' },
+        { type: 'dialogue', speaker: '', text: '你站在松山機場的到達大廳，手裡捧著一束白百合。心跳快得像要爆炸。' },
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch5_airport.png' },
+        { type: 'dialogue', speaker: '', text: '空橋的門打開了。穿著制服的空服員們魚貫而出。你在人群中搜尋著——' },
+        { type: 'dialogue', speaker: '', text: '然後你看到了她。制服筆挺，行李箱在身後，但笑容跟平時不一樣。那是一種...放下所有包袱的笑容。' },
+        { type: 'cg', image: 'assets/images/scene_yuki/scene_yuki_ch5_reunion.png' },
+        { type: 'dialogue', speaker: '', text: '她看到你的那一刻——丟下行李箱，像個小女孩一樣跑了過來。帽子被風吹落，白百合被擠得花瓣紛飛。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '（撲進你懷裡，聲音帶著哭腔）我回來了。我申請轉調國內線了。' },
+        { type: 'dialogue', speaker: 'Yuki', text: '從今以後...每天都能回到你身邊了。' },
+        { type: 'choice', choices: [
+          { text: '歡迎回來。（緊緊抱住她）以後每天都來接妳。', effect: { affection: 15 } },
+          { text: '（把被壓扁的白百合舉起來）花被妳壓壞了...但沒關係，妳比花美多了。', effect: { affection: 12 } },
+        ]},
+        { type: 'dialogue', speaker: '4J', text: '歡迎回來，Yuki。歡迎回家。' },
+        { type: 'ending', image: 'assets/images/scene_yuki/scene_yuki_ch5_ending_cg.png',
+          title: '✈️ 天空與大地之間', text: '她飛過了全世界的天空，最後選擇降落在你身邊。\n天空是她的翅膀，而你是她的家。\n從三萬英尺的微笑，到每一天的「我回來了」。\n再也不用一個人飛翔。' },
+      ]},
     ],
 
-    // ============================================
-    // REBECCA - 有錢阿姨
-    // ============================================
     rebecca: [
-      // Chapter 1: 扶輪社的注目禮
-      {
-        title: '扶輪社的注目禮',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch1_gala.png', description: '扶輪社宴會廳' },
-          { type: 'dialogue', speaker: '', text: '你穿著唯一一套西裝在五星級飯店宴會廳，格格不入。所有人都在談股票和高爾夫。' },
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch1_intro.png', description: 'Rebecca遞名片' },
-          { type: 'dialogue', speaker: 'Rebecca', text: '你是新來的？很少看到這麼年輕的面孔。有意思。' },
-          { type: 'dialogue', speaker: 'Rebecca', text: '你家是做什麼的？' },
-          {
-            type: 'choice',
-            choices: [
-              { text: '廚具工廠...很普通吧。', effect: { affection: 5 } },
-              { text: '廚具製造業，目前在研究轉型到國際市場。', effect: { affection: 20 }, require: { insight: 60 } },
-              { text: '比不上在場各位大老闆啦。', effect: { affection: 0 } },
-            ]
-          },
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch1_wine.png', description: '紅酒對話' },
-          { type: 'dialogue', speaker: 'Rebecca', text: '（搖晃紅酒杯）有自知之明是好事。但光有自知之明，成不了大事。' },
-          { type: 'dialogue', speaker: '', text: '她的名片上印著：「王瑞貝卡 — 凱達國際董事長夫人」。' },
-        ]
-      },
-      // Chapter 2: 貴婦的私人課程
-      {
-        title: '貴婦的私人課程',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch2_lounge.png', description: '私人會所下午茶' },
-          { type: 'dialogue', speaker: '', text: 'Rebecca 以「指導年輕人」為名，邀你到私人會所喝下午茶。' },
-          { type: 'dialogue', speaker: '', text: '她教你品酒、餐桌禮儀、商業談判技巧。' },
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch2_tie.png', description: '調整領帶' },
-          { type: 'dialogue', speaker: '', text: '調整你的領帶時，她的手指滑過你的脖子...' },
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch2_wine_lesson.png', description: '品酒教學' },
-          { type: 'dialogue', speaker: 'Rebecca', text: '品酒和品人一樣，要慢慢來。別急。' },
-          {
-            type: 'choice',
-            choices: [
-              { text: '（保持冷靜）謝謝 Rebecca 姊的指導。', effect: { affection: 10 } },
-              { text: '（心跳加速）妳...離得好近。', effect: { affection: 15 } },
-            ]
-          },
-          { type: 'dialogue', speaker: '', text: 'Rebecca 享受著這種獵人與獵物的遊戲。' },
-        ]
-      },
-      // Chapter 3: 高爾夫球場的獨處
-      {
-        title: '高爾夫球場的獨處',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch3_golf.png', description: '高爾夫球場' },
-          { type: 'dialogue', speaker: '', text: 'Rebecca 約你打高爾夫球——私人球場，就你們兩個人。' },
-          { type: 'dialogue', speaker: '', text: '她從背後環抱住你「矯正姿勢」...' },
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch3_cart.png', description: '球車上的對話' },
-          { type: 'dialogue', speaker: 'Rebecca', text: '4J，你知道我老公已經兩年沒回家了嗎？' },
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch3_lonely.png', description: 'Rebecca的寂寞' },
-          { type: 'dialogue', speaker: 'Rebecca', text: '所有人看到的都是「董事長夫人」...沒有人看到我。' },
-          {
-            type: 'choice',
-            choices: [
-              { text: '我看到的是妳，不是那個頭銜。', effect: { affection: 20 } },
-              { text: '...妳值得更好的。', effect: { affection: 15 } },
-            ]
-          },
-          { type: 'dialogue', speaker: '', text: '第一次看到 Rebecca 眼神裡不是遊戲，而是真實的寂寞。' },
-        ]
-      },
-      // Chapter 4: 豪宅的秘密花園
-      {
-        title: '豪宅的秘密花園',
-        scenes: [
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch4_mansion.png', description: '豪宅夜景' },
-          { type: 'dialogue', speaker: '', text: '雨夜，Rebecca 傳訊息：「我一個人在家，你能來嗎？」' },
-          { type: 'dialogue', speaker: '', text: '陽明山的豪宅，偌大的房子空蕩蕩只有她一個人。' },
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch4_robe.png', description: '絲質睡袍的Rebecca' },
-          { type: 'dialogue', speaker: '', text: '沒有名牌、沒有珠寶，只穿著一件絲質睡袍的她，和平時完全不同。' },
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch4_pool.png', description: '泳池邊的真心話' },
-          { type: 'dialogue', speaker: 'Rebecca', text: '在這些人面前，只有你把我當一個人看，不是一張信用卡。' },
-          {
-            type: 'choice',
-            choices: [
-              { text: '（坐在她身邊）那就做回真正的妳。', effect: { affection: 20 } },
-              { text: '（握住她的手）不管妳是誰，我都在這裡。', effect: { affection: 15 } },
-            ]
-          },
-          { type: 'dialogue', speaker: '', text: '泳池的藍光映照在天花板上，雨打在窗上...' },
-        ]
-      },
-      // Chapter 5: 新的天地
-      {
-        title: '新的天地',
-        scenes: [
-          { type: 'dialogue', speaker: '', text: 'Rebecca 簽下離婚協議書，帶著你飛往巴黎。' },
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch5_paris.png', description: '巴黎咖啡店' },
-          { type: 'dialogue', speaker: 'Rebecca', text: '我這半輩子活在別人的期待裡。謝謝你讓我知道，重新開始永遠不嫌晚。' },
-          { type: 'dialogue', speaker: '', text: '她拿出投資計畫書——用她的資金加你家族的製造技術，打造台灣精品廚具品牌。' },
-          { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch5_eiffel.png', description: '鐵塔下的擁吻' },
-          { type: 'ending', image: 'assets/images/scene_rebecca/scene_rebecca_ch5_ending_cg.png',
-            title: '👑 新的天地', text: 'Rebecca 在艾菲爾鐵塔下吻了你。\n從扶輪社的偶遇，到巴黎的新人生。\n年齡不是問題，真心才是答案。' },
-        ]
-      },
+      { title: '扶輪社的注目禮', scenes: [
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch1_gala.png' },
+        { type: 'dialogue', speaker: '', text: '五星級飯店宴會廳。水晶燈、香檳塔、穿著禮服的上流社會人士。你穿著唯一一套西裝站在角落。' },
+        { type: 'dialogue', speaker: '', text: '所有人都在聊股票、高爾夫和紅酒年份。你端著紅酒杯，連怎麼拿都不確定對不對。' },
+        { type: 'dialogue', speaker: '', text: '就在你考慮假裝接電話溜走的時候——' },
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch1_intro.png' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '你是新來的吧？很少在這裡看到這麼年輕的面孔。' },
+        { type: 'dialogue', speaker: '', text: '她穿著一襲紅色晚禮服，珍珠項鍊在鎖骨上閃著光。舉手投足間散發著你從未接觸過的從容與優雅。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '（遞出名片，嘴角微揚）王瑞貝卡。你家是做什麼的？' },
+        { type: 'choice', choices: [
+          { text: '廚具工廠...很普通吧。跟在場的各位比起來。', effect: { affection: 5 } },
+          { text: '廚具製造業。目前正在研究轉型到餐飲設備的國際市場。', effect: { affection: 20 }, require: { insight: 60 } },
+          { text: '比不上在場各位大老闆啦。我只是來學習的。', effect: { affection: 0 } },
+        ]},
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch1_wine.png' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '（搖晃紅酒杯，意味深長地看著你）有自知之明是好事。但光有自知之明，成不了大事。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '你知道嗎？這杯酒是 2005 年的波爾多。要懂得品嚐好東西，才能創造好東西。' },
+        { type: 'choice', choices: [
+          { text: '（認真地聞了聞酒）所以...這杯酒有什麼特別的？請教一下。', effect: { affection: 10 } },
+          { text: '我對酒不太懂。但我很願意學。', effect: { affection: 8 } },
+          { text: '（一口乾掉）嗯...比便利商店的好喝。', effect: { affection: -5 } },
+        ]},
+        { type: 'dialogue', speaker: 'Rebecca', text: '（被逗笑了，很快又恢復優雅的微笑）有意思。你跟這裡的人都不一樣。' },
+        { type: 'dialogue', speaker: '', text: '她的名片上印著：「王瑞貝卡 — 凱達國際 董事長夫人」。你默默把名片收進口袋。' },
+      ]},
+      { title: '貴婦的私人課程', scenes: [
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch2_lounge.png' },
+        { type: 'dialogue', speaker: '', text: '信義區頂樓的私人會所。落地窗外是台北101。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '今天教你品酒、用餐禮儀和基本的商業社交。坐吧。' },
+        { type: 'dialogue', speaker: '', text: '她以「指導後進」的名義邀你來，但這間會所的最低消費就要你半個月的薪水。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '先從茶開始。拿杯子的時候，小指不要翹。那是電視劇演的。' },
+        { type: 'choice', choices: [
+          { text: '（認真聽講，做筆記）我是認真想學這些的。', effect: { affection: 8 } },
+          { text: '我有個疑問...為什麼要特地教我這些？', effect: { affection: 12 } },
+          { text: '比起禮儀，我更想知道妳是怎麼走到今天的。', effect: { affection: 15 }, require: { insight: 50 } },
+        ]},
+        { type: 'dialogue', speaker: 'Rebecca', text: '（微笑）問得好。因為...在那個宴會上，只有你的眼神是真誠的。其他人看我的時候，看到的是我老公的資產。' },
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch2_tie.png' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '你的領帶歪了。過來。' },
+        { type: 'dialogue', speaker: '', text: '她站起身，走到你面前。纖細的手指解開你的領帶，重新繞好。她的臉很近，近到你能聞到她的香水——不是那種甜膩的，而是沉穩的木質調。' },
+        { type: 'dialogue', speaker: '', text: '她的手指在你的領口停留了一瞬間。你感覺到她指尖的溫度。' },
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch2_wine_lesson.png' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '品酒和品人一樣...要慢慢來。急的人喝不到好酒，也遇不到好人。' },
+        { type: 'choice', choices: [
+          { text: '（保持鎮定）謝謝 Rebecca 姊的指導。我會慢慢學的。', effect: { affection: 10 } },
+          { text: '（心跳加速，但直視她的眼睛）妳...離得好近。', effect: { affection: 15 } },
+          { text: '（退後一步）抱歉，我有點緊張。', effect: { affection: 3 } },
+        ]},
+        { type: 'dialogue', speaker: 'Rebecca', text: '（嘴角勾起一個意味深長的弧度）不用緊張。我又不會吃了你。' },
+        { type: 'dialogue', speaker: '', text: '她說這話的時候，眼神裡閃過一絲——你說不清是玩味，還是寂寞。' },
+      ]},
+      { title: '高爾夫球場的獨處', scenes: [
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch3_golf.png' },
+        { type: 'dialogue', speaker: '', text: '林口某私人高爾夫球場。整片翠綠的球場上只有你們兩個人。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '握桿的姿勢不對。來，我教你。' },
+        { type: 'dialogue', speaker: '', text: '她從你身後環抱住你，雙手覆在你的手上「矯正姿勢」。你能感覺到她的體溫貼著你的背。' },
+        { type: 'choice', choices: [
+          { text: '（集中精神）這樣對嗎？力道要多大？', effect: { affection: 5 } },
+          { text: '（心跳加速，但沒有躲開）...妳教得很仔細。', effect: { affection: 10 } },
+          { text: 'Rebecca 姊...妳是故意的吧。', effect: { affection: 15 } },
+        ]},
+        { type: 'dialogue', speaker: 'Rebecca', text: '（放開手，笑了笑）聰明的孩子。' },
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch3_cart.png' },
+        { type: 'dialogue', speaker: '', text: '球車上，她突然安靜了下來。陽光透過樹蔭在她臉上投下斑駁的光影。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '4J...你知道嗎？我老公已經兩年沒回台灣了。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '公司在上海有業務。他說很忙。但我知道...上海那邊有人。' },
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch3_lonely.png' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '（低頭看著手上的鑽石婚戒）這枚戒指...五克拉。可以買一台車。但它買不到一個回家吃晚飯的人。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '所有人看到的都是「董事長夫人」...衣服、珠寶、名車。沒有人看到戴著這些東西的...我。' },
+        { type: 'choice', choices: [
+          { text: '我看到的是妳。不是頭銜，不是珠寶。就是...妳這個人。', effect: { affection: 20 } },
+          { text: '妳值得更好的。不是更好的東西——而是更好的對待。', effect: { affection: 15 } },
+          { text: '...那為什麼不離開？', effect: { affection: 8 } },
+        ]},
+        { type: 'dialogue', speaker: 'Rebecca', text: '（看著你，眼神第一次沒有遊戲感）...你真的很不一樣。' },
+        { type: 'dialogue', speaker: '', text: '夕陽把整片球場染成金色。你看到她眼角有一滴淚光，但她很快就用笑容掩蓋過去了。' },
+      ]},
+      { title: '豪宅的秘密花園', scenes: [
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch4_mansion.png' },
+        { type: 'dialogue', speaker: '', text: '一個雨夜。手機震動——Rebecca 的訊息：「我一個人在家。你能來嗎？」' },
+        { type: 'dialogue', speaker: '', text: '陽明山上，一棟現代風格的豪宅。你搭計程車到門口時，偌大的房子只有客廳亮著燈。' },
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch4_robe.png' },
+        { type: 'dialogue', speaker: '', text: '開門的 Rebecca——沒有妝容，沒有珠寶，沒有名牌。只穿著一件米白色的絲質睡袍，頭髮自然地散落在肩上。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '...你來了。進來吧。外面雨很大。' },
+        { type: 'dialogue', speaker: '', text: '偌大的客廳空蕩蕩的。室內泳池的藍光在天花板上漾開波紋。' },
+        { type: 'choice', choices: [
+          { text: '妳還好嗎？聲音聽起來不太對勁。', effect: { affection: 10 } },
+          { text: '（環顧四周）這麼大的房子...一個人住？', effect: { affection: 8 } },
+        ]},
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch4_pool.png' },
+        { type: 'dialogue', speaker: '', text: '她帶你到泳池邊，兩人脫了鞋，把腳泡進溫水裡。池水的藍光在她臉上跳動。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '今天...離婚協議書寄到了。我簽了。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '在這些人面前——扶輪社的、商場上的、所有人——只有你把我當一個人看。不是一張信用卡，不是一個頭銜。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '（聲音微顫）你知道嗎...我已經三十八歲了。在這個社會，離了婚的女人、沒有老公的名片...我什麼都不是。' },
+        { type: 'choice', choices: [
+          { text: '（坐在她身邊，肩膀靠著肩膀）那就做回真正的妳。從今天開始，妳不需要任何人的名片。', effect: { affection: 20 } },
+          { text: '（握住她的手）不管妳幾歲，不管妳是誰，此刻的妳...是最真實的。我都在這裡。', effect: { affection: 18 } },
+        ]},
+        { type: 'dialogue', speaker: 'Rebecca', text: '（把頭靠在你肩上）...謝謝你。' },
+        { type: 'dialogue', speaker: '', text: '雨打在落地窗上。泳池的藍光映照在天花板上。這一刻，這間豪宅不再空蕩蕩的了。' },
+      ]},
+      { title: '新的天地', scenes: [
+        { type: 'dialogue', speaker: '', text: '兩個月後。Rebecca 帶著你登上了飛往巴黎的頭等艙。' },
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch5_paris.png' },
+        { type: 'dialogue', speaker: '', text: '塞納河畔的咖啡店。秋天的巴黎，落葉在腳邊翻滾。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '（展開一份計畫書）我這半輩子活在別人的期待裡。但是從現在開始，我要為自己活。' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '你家的廚具工廠有技術，我有資金和國際人脈。我們在歐洲打造一個台灣精品廚具品牌，怎麼樣？' },
+        { type: 'choice', choices: [
+          { text: '我想了很久了。跟妳一起，我什麼都敢做。', effect: { affection: 15 } },
+          { text: '叫我合夥人？還是...叫別的比較好？（看著她）', effect: { affection: 12 } },
+        ]},
+        { type: 'dialogue', speaker: 'Rebecca', text: '（笑了，眼角有細紋但笑容真誠）你這個小鬼...什麼時候學會撩人的？' },
+        { type: 'dialogue', speaker: '', text: '她站起身，拉著你走向塞納河畔。遠處的艾菲爾鐵塔在夕陽下閃耀。' },
+        { type: 'cg', image: 'assets/images/scene_rebecca/scene_rebecca_ch5_eiffel.png' },
+        { type: 'dialogue', speaker: 'Rebecca', text: '謝謝你讓我知道...重新開始永遠不嫌晚。不管是三十八歲，還是八十三歲。' },
+        { type: 'ending', image: 'assets/images/scene_rebecca/scene_rebecca_ch5_ending_cg.png',
+          title: '👑 新的天地', text: 'Rebecca 在艾菲爾鐵塔下吻了你。\n落葉紛飛的巴黎街頭，兩個重新出發的人。\n年齡不是問題，身份不是枷鎖。\n真心，才是唯一的答案。' },
+      ]},
     ],
   }
 };

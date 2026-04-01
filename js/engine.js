@@ -235,11 +235,34 @@ const GameEngine = {
   },
 
   // === Visual Novel Mode ===
-  startChapter(charKey, chapterIndex) {
+  async startChapter(charKey, chapterIndex) {
     this.currentRoute = charKey;
     const chapter = StoryData.routes[charKey][chapterIndex];
     this.vnQueue = chapter.scenes;
     this.vnIndex = 0;
+
+    // Show loading and preload chapter images
+    const overlay = document.getElementById('loading-overlay');
+    const bar = document.getElementById('loading-bar');
+    const text = document.getElementById('loading-text');
+    const images = chapter.scenes.filter(s => s.image).map(s => s.image);
+    if (images.length > 0) {
+      overlay.classList.remove('hidden');
+      bar.style.width = '0%';
+      text.textContent = `載入劇情圖片...`;
+      let loaded = 0;
+      await Promise.all(images.map(url => new Promise(resolve => {
+        const img = new Image();
+        img.onload = img.onerror = () => {
+          loaded++;
+          bar.style.width = `${(loaded / images.length) * 100}%`;
+          text.textContent = `載入劇情圖片 (${loaded}/${images.length})`;
+          resolve();
+        };
+        img.src = url;
+      })));
+      overlay.classList.add('hidden');
+    }
 
     UI.showScreen('vn');
     UI.hideCG();
@@ -518,7 +541,55 @@ const GameEngine = {
 // === Global game reference ===
 const game = GameEngine;
 
+// === Image Preloader ===
+const Preloader = {
+  preloadChapter(charKey, chapterIndex) {
+    const chapter = StoryData.routes[charKey]?.[chapterIndex];
+    if (!chapter) return Promise.resolve();
+    const images = chapter.scenes.filter(s => s.image).map(s => s.image);
+    return this.preloadImages(images);
+  },
+
+  preloadImages(urls) {
+    if (!urls.length) return Promise.resolve();
+    return Promise.all(urls.map(url => new Promise(resolve => {
+      const img = new Image();
+      img.onload = resolve;
+      img.onerror = resolve; // don't block on missing images
+      img.src = url;
+    })));
+  },
+
+  async preloadUI() {
+    const overlay = document.getElementById('loading-overlay');
+    const bar = document.getElementById('loading-bar');
+    const text = document.getElementById('loading-text');
+    const uiImages = [
+      'assets/images/ui/ui_title_screen.png',
+      'assets/images/ui/ui_main_hub.png',
+      'assets/images/ui/ui_status_panel.png',
+      'assets/images/ui/ui_dialogue_box.png',
+      'assets/images/ui/ui_map_taipei.png',
+    ];
+    let loaded = 0;
+    const total = uiImages.length;
+    text.textContent = `載入UI資源 (0/${total})`;
+    await Promise.all(uiImages.map(url => new Promise(resolve => {
+      const img = new Image();
+      img.onload = img.onerror = () => {
+        loaded++;
+        bar.style.width = `${(loaded / total) * 100}%`;
+        text.textContent = `載入UI資源 (${loaded}/${total})`;
+        resolve();
+      };
+      img.src = url;
+    })));
+    overlay.classList.add('hidden');
+  }
+};
+
 // === Init on load ===
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
+  await Preloader.preloadUI();
   game.init();
 });
