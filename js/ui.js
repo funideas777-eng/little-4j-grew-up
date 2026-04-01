@@ -7,6 +7,7 @@ const UI = {
 
   init() {
     this.screens = {
+      gate: document.getElementById('screen-gate'),
       title: document.getElementById('screen-title'),
       hub: document.getElementById('screen-hub'),
       vn: document.getElementById('screen-vn'),
@@ -16,6 +17,10 @@ const UI = {
     if (SaveSystem.hasSave()) {
       document.getElementById('btn-continue').style.display = '';
     }
+    // Enter key on gate inputs
+    document.getElementById('gate-answer').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') game.verifyGate();
+    });
   },
 
   showScreen(name) {
@@ -39,6 +44,15 @@ const UI = {
       rotary.classList.remove('locked');
     } else {
       rotary.classList.add('locked');
+    }
+
+    // Date button lock
+    const dateBtn = document.getElementById('action-date');
+    const hasMetAnyone = Object.values(state.metChars).some(v => v);
+    if (hasMetAnyone) {
+      dateBtn.classList.remove('locked');
+    } else {
+      dateBtn.classList.add('locked');
     }
 
     // Affection bars

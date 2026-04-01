@@ -7,6 +7,52 @@ const StoryData = {
     rebecca: { name: 'Rebecca', fullName: '王瑞貝卡', color: '#ffa0a0' },
   },
 
+  // Date activities
+  dateTypes: [
+    { key: 'movie', name: '看電影', icon: '🎬', stamina: 10, money: 1500, affection: 5, bonus: {} },
+    { key: 'shopping', name: '逛街購物', icon: '🛒', stamina: 15, money: 3000, affection: 8, bonus: {} },
+    { key: 'dinner', name: '餐廳約會', icon: '🍽️', stamina: 10, money: 5000, affection: 10, bonus: {} },
+    { key: 'trip', name: '一起旅遊', icon: '🌴', stamina: 20, money: 15000, affection: 15, bonus: { insight: 3 } },
+  ],
+
+  // Date dialogues (random per character)
+  dateDialogues: {
+    kaoru: {
+      movie: ['看恐怖片的時候，小薰緊緊抓住你的手臂，臉埋在你的肩膀裡。', '小薰看到浪漫橋段眼眶泛紅，偷偷看了你一眼。', '「下次我們來看動畫片吧！我超喜歡宮崎駿的！」'],
+      shopping: ['小薰拉著你逛了三家飾品店，最後選了一對情侶手環。', '「你覺得這件洋裝好看嗎？」她在試衣間門口轉了一圈。', '她堅持幫你挑了一件新T-shirt：「你不能永遠穿那件啦！」'],
+      dinner: ['小薰點了一整桌甜點，開心得像個小孩子。', '「我以前都是一個人吃飯...有人陪真好。」她笑著低下頭。', '她偷偷把最後一塊蛋糕推到你面前：「你吃吧，我減肥。」'],
+      trip: ['小薰在海邊撿了一個心形的石頭，塞進你的口袋。', '「和你一起看的風景，都變得特別漂亮。」', '她拍了好多合照，設成了手機桌布。'],
+    },
+    amy: {
+      movie: ['Amy 看完動作片後興奮地分析每個飆車鏡頭的真實性。', '「這種引擎聲明顯是後製的，真正的 V8 不是這個聲音。」', '她看到主角的車被撞毀，比劇情還心疼。'],
+      shopping: ['Amy 直奔汽車精品店，買了一個方向盤套。', '她在男裝店幫你挑了一套西裝：「做生意要有樣子。」', '「逛街？我以為我們是來看新款輪圈的。」'],
+      dinner: ['Amy 點了一瓶紅酒，教你怎麼醒酒。', '「難得不用應酬的晚餐，放鬆多了。」她難得地笑了。', '她主動夾菜到你碗裡，被你看到後假裝沒事。'],
+      trip: ['Amy 堅持要自己開車，一路上超了十幾台車。', '「跟你出來才發現，世界不只有業績報表。」', '她在山頂的觀景台，難得地靠在你肩上。'],
+    },
+    yuki: {
+      movie: ['Yuki 安靜地看完整部片，散場時才說：「結局讓我想到我們。」', '她在黑暗中悄悄把手放在你手邊，等你握住。', '「日本有個傳說，一起看完一部電影的人，緣分會加深喔。」'],
+      shopping: ['Yuki 在日本雜貨店流連忘返，買了一包家鄉的零食。', '她幫你挑了一條圍巾：「冬天的時候想到我，就戴上吧。」', '「我習慣在每個城市買一個小紀念品...這次買兩個。」'],
+      dinner: ['Yuki 帶你去一家隱藏版的日式居酒屋。', '「いただきます。」她雙手合十，認真地說完才動筷。', '微醺的 Yuki 用日文說了一句話，你問她什麼意思，她笑著搖頭。'],
+      trip: ['Yuki 在溫泉旅館寫了一張明信片給你。', '「飛了那麼多地方，和你一起去的最特別。」', '她在神社買了一個御守，偷偷塞進你的背包。'],
+    },
+    rebecca: {
+      movie: ['Rebecca 包了 VIP 影廳，只有你們兩個人。', '「我很久沒有像普通人一樣看電影了。」她看起來很開心。', '她評論電影裡的商業策略比劇情還專業。'],
+      shopping: ['Rebecca 帶你去精品店，店員全都認識她。', '她不動聲色地幫你付了帳：「當作學費吧。」', '「品味是需要培養的，跟著我學就對了。」'],
+      dinner: ['Rebecca 帶你去米其林餐廳，幫你點了整套法式料理。', '「你知道嗎，有人陪著吃飯是一種奢侈。」她看著窗外。', '她破例喝了第三杯酒，開始叫你的名字而不是「小朋友」。'],
+      trip: ['Rebecca 安排了頭等艙和五星級飯店。', '「和你在一起的時候，我可以不用演。」她卸下了所有偽裝。', '她在海邊赤腳走路，笑得像個少女。'],
+    },
+  },
+
+  // Shop items
+  shopItems: [
+    { key: 'flower', name: '花束', icon: '💐', price: 500, effect: { affection: 3 }, target: 'gift', desc: '送給她，好感+3' },
+    { key: 'ticket', name: '演唱會門票', icon: '🎫', price: 3000, effect: { affection: 6, charm: 2 }, target: 'gift', desc: '好感+6 魅力+2' },
+    { key: 'bag', name: '名牌包', icon: '👜', price: 8000, effect: { affection: 8 }, target: 'gift', desc: '送給她，好感+8' },
+    { key: 'necklace', name: '項鍊', icon: '📿', price: 15000, effect: { affection: 12 }, target: 'gift', desc: '送給她，好感+12' },
+    { key: 'gym', name: '健身會員卡', icon: '💪', price: 5000, effect: { charm: 5 }, target: 'self', desc: '自用，魅力+5' },
+    { key: 'books', name: '書籍套裝', icon: '📚', price: 2000, effect: { insight: 3 }, target: 'self', desc: '自用，見識+3' },
+  ],
+
   // Action trigger mapping
   actionTriggers: {
     work: { char: 'kaoru', chance: 0.15 },

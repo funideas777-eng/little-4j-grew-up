@@ -15,6 +15,7 @@ const SaveSystem = {
       metChars: { kaoru: false, amy: false, yuki: false, rebecca: false },
       chapterProgress: { kaoru: 0, amy: 0, yuki: 0, rebecca: 0 },
       completedEndings: [],
+      playerName: '4J',
       currentRoute: null,
       currentChapter: 0,
       currentDialogueIndex: 0,

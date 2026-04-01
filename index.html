@@ -8,8 +8,25 @@
 </head>
 <body>
   <div id="game-container">
+    <!-- Gate Screen (Age Verification) -->
+    <div id="screen-gate" class="screen active">
+      <div id="gate-bg"></div>
+      <div class="gate-content">
+        <h1 class="gate-title">小小4J長大了</h1>
+        <p class="gate-warning">本遊戲含成人內容，需年齡驗證</p>
+        <div class="gate-form">
+          <label class="gate-label">請輸入你的名字</label>
+          <input type="text" id="gate-name" class="gate-input" placeholder="輸入玩家名稱..." maxlength="12">
+          <label class="gate-label gate-question">請問小4J有幾公分？</label>
+          <input type="text" id="gate-answer" class="gate-input" placeholder="請輸入數字...">
+          <p id="gate-error" class="gate-error"></p>
+          <button class="btn-main" onclick="game.verifyGate()">進入遊戲</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Title Screen -->
-    <div id="screen-title" class="screen active">
+    <div id="screen-title" class="screen">
       <div id="title-bg"></div>
       <div class="title-content">
         <h1 class="game-title">小小4J長大了</h1>
@@ -68,6 +85,19 @@
           <div class="action-gain">地位+15</div>
           <div class="action-lock">需見識≥60 月收入≥80k</div>
         </button>
+        <button class="action-card locked" data-action="date" id="action-date" onclick="game.openDateMenu()">
+          <div class="action-icon">💕</div>
+          <div class="action-name">約會</div>
+          <div class="action-cost">選擇約會對象</div>
+          <div class="action-gain">好感度UP</div>
+          <div class="action-lock" id="date-lock-text">需先認識角色</div>
+        </button>
+        <button class="action-card" data-action="shop" onclick="game.openShop()">
+          <div class="action-icon">🛍️</div>
+          <div class="action-name">商店</div>
+          <div class="action-cost">購買禮物/道具</div>
+          <div class="action-gain">送禮增加好感</div>
+        </button>
       </div>
       <div class="affection-bar" id="affection-bar"></div>
     </div>
@@ -91,6 +121,27 @@
         <h2 id="ending-title" class="ending-title"></h2>
         <p id="ending-text" class="ending-text"></p>
         <button class="btn-main" onclick="game.returnToTitle()">回到標題</button>
+      </div>
+    </div>
+
+    <!-- Date Menu popup -->
+    <div id="popup-date" class="popup" style="display:none">
+      <div class="popup-content popup-wide">
+        <h3 id="date-popup-title">選擇約會對象</h3>
+        <div id="date-char-select" class="char-select-grid"></div>
+        <div id="date-type-select" class="date-type-grid" style="display:none"></div>
+        <div id="date-result-area" style="display:none"></div>
+        <button class="btn-sub" onclick="game.closeDateMenu()">返回</button>
+      </div>
+    </div>
+
+    <!-- Shop popup -->
+    <div id="popup-shop" class="popup" style="display:none">
+      <div class="popup-content popup-wide">
+        <h3>商店</h3>
+        <div id="shop-items" class="shop-grid"></div>
+        <div id="shop-gift-select" class="char-select-grid" style="display:none"></div>
+        <button class="btn-sub" onclick="game.closeShop()">返回</button>
       </div>
     </div>
 
