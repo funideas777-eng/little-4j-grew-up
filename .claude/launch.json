@@ -3,6 +3,12 @@
   "configurations": [
     {
       "name": "little-4j",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["server.js"],
+      "port": 3000
+    },
+    {
+      "name": "little-4j-static",
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8080"],
       "port": 8080

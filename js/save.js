@@ -1,6 +1,7 @@
 /* === Save System === */
 const SaveSystem = {
   KEY: 'little4j_save',
+  UNLOCK_KEY: 'little4j_unlocks',
 
   getDefault() {
     return {
@@ -42,5 +43,33 @@ const SaveSystem = {
 
   clear() {
     localStorage.removeItem(this.KEY);
-  }
+  },
+
+  // === Character Unlock System (persists across new games) ===
+  getUnlocks() {
+    try {
+      const d = localStorage.getItem(this.UNLOCK_KEY);
+      const unlocks = d ? JSON.parse(d) : {};
+      // Yuki is always free
+      unlocks.yuki = true;
+      return unlocks;
+    } catch (e) {
+      return { yuki: true };
+    }
+  },
+
+  isUnlocked(charKey) {
+    if (charKey === 'yuki') return true;
+    const unlocks = this.getUnlocks();
+    return !!unlocks[charKey];
+  },
+
+  setUnlock(charKey) {
+    try {
+      const unlocks = this.getUnlocks();
+      unlocks[charKey] = true;
+      localStorage.setItem(this.UNLOCK_KEY, JSON.stringify(unlocks));
+      return true;
+    } catch (e) { return false; }
+  },
 };

@@ -13,11 +13,15 @@
   "author": "funideas",
   "license": "UNLICENSED",
   "scripts": {
-    "check-assets": "node scripts/check-assets.js",
-    "dev": "echo 'Game engine not yet implemented'",
-    "build": "echo 'Game engine not yet implemented'"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "check-assets": "node scripts/check-assets.js"
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "express": "^5.2.1"
   }
 }

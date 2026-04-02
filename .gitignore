@@ -19,3 +19,11 @@ build/
 # Temp
 *.tmp
 *.log
+
+# API keys / secrets
+.env
+.xai_env
+*.key
+
+# Generation logs
+scripts/logs/

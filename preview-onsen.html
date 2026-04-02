@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuki 溫泉結局 — 5張場景預覽</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a12;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+    h1 {
+      text-align: center;
+      padding: 30px 20px 10px;
+      font-size: 28px;
+      background: linear-gradient(135deg, #ff9ad2, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      text-align: center;
+      color: #888;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+    .gallery {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .card {
+      background: #16162a;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+    }
+    .card img {
+      width: 100%;
+      display: block;
+      cursor: pointer;
+      transition: filter 0.3s;
+    }
+    .card img:hover {
+      filter: brightness(1.1);
+    }
+    .card-info {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .card-num {
+      font-size: 36px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #ff6ec7, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      min-width: 50px;
+    }
+    .card-text h3 {
+      font-size: 18px;
+      margin-bottom: 4px;
+      color: #e0d0ff;
+    }
+    .card-text p {
+      font-size: 14px;
+      color: #999;
+      line-height: 1.5;
+    }
+    .tag {
+      display: inline-block;
+      background: rgba(167, 139, 250, 0.2);
+      color: #c4b5fd;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 95vh;
+      border-radius: 8px;
+      box-shadow: 0 0 60px rgba(167, 139, 250, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <h1>🌸 Yuki 溫泉結局 — 場景預覽</h1>
+  <p class="subtitle">共 5 張，由 Grok Imagine Pro 生成 | 點擊圖片可放大</p>
+
+  <div class="gallery">
+    <div class="card">
+      <img src="assets/images/scene_yuki/scene_yuki_onsen_01_together.png" onclick="openLightbox(this.src)" alt="一起踏入溫泉">
+      <div class="card-info">
+        <div class="card-num">01</div>
+        <div class="card-text">
+          <h3>害羞初入浴 — 一起踏入露天溫泉</h3>
+          <p>Yuki 披著白色浴巾害羞地踏入溫泉水面，臉頰緋紅。男主紳士地別過頭。月光灑落，櫻花瓣紛飛，石燈籠暖暖發光。</p>
+          <span class="tag">緊張 / 害羞 / 月光</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/scene_yuki/scene_yuki_onsen_02_whisper.png" onclick="openLightbox(this.src)" alt="耳邊低語">
+      <div class="card-info">
+        <div class="card-num">02</div>
+        <div class="card-text">
+          <h3>耳邊低語 — 溫泉中的私密對話</h3>
+          <p>兩人泡在蒸氣繚繞的水中，Yuki 俏皮地湊近男主耳邊輕聲說話，嘴唇幾乎碰到耳垂。男主滿臉通紅，她卻笑得調皮。</p>
+          <span class="tag">俏皮 / 誘惑 / 親密</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/scene_yuki/scene_yuki_onsen_03_backleaning.png" onclick="openLightbox(this.src)" alt="背靠背仰望星空">
+      <div class="card-info">
+        <div class="card-num">03</div>
+        <div class="card-text">
+          <h3>背靠背依偎 — 仰望銀河星空</h3>
+          <p>兩人背靠背坐在溫泉中，肩膀相依。Yuki 閉眼微笑，男主仰望壯觀的銀河。寧靜的夜，兩顆心無聲地連結在一起。</p>
+          <span class="tag">寧靜 / 浪漫 / 銀河</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/scene_yuki/scene_yuki_onsen_04_facetoface.png" onclick="openLightbox(this.src)" alt="面對面牽手">
+      <div class="card-info">
+        <div class="card-num">04</div>
+        <div class="card-text">
+          <h3>面對面深情對望 — 水中十指交扣</h3>
+          <p>四目相對，鼻尖幾乎碰到鼻尖。水中的手緊緊交握。濕潤的黑髮貼著肩頸，櫻花瓣漂浮在兩人之間的水面上。</p>
+          <span class="tag">深情 / 渴望 / 電影感</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/scene_yuki/scene_yuki_onsen_05_embrace.png" onclick="openLightbox(this.src)" alt="溫泉擁抱">
+      <div class="card-info">
+        <div class="card-num">05</div>
+        <div class="card-text">
+          <h3>激情擁抱 — 結局高潮</h3>
+          <p>月光下全力相擁，水花因動作飛濺。櫻花瓣如旋渦般環繞兩人。巨大的滿月高掛天際，石燈籠、竹林、日式庭園。海報級的結局畫面。</p>
+          <span class="tag">激情 / 高潮 / 海報級</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="放大預覽">
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+</body>
+</html>

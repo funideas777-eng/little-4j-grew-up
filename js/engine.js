@@ -8,6 +8,7 @@ const GameEngine = {
   playerName: '4J',
   _dateTarget: null,
   _shopItem: null,
+  replayMode: false,
 
   // Gate answer verification (obfuscated: answer = 30)
   _gateCheck(v) {
@@ -70,9 +71,18 @@ const GameEngine = {
   },
 
   returnToTitle() {
+    this.replayMode = false;
     UI.showScreen('title');
     if (SaveSystem.hasSave()) {
       document.getElementById('btn-continue').style.display = '';
+    }
+    // Show replay button if any endings completed
+    const save = SaveSystem.load();
+    const replayBtn = document.getElementById('btn-replay-title');
+    if (save && save.completedEndings && save.completedEndings.length > 0) {
+      replayBtn.style.display = '';
+    } else {
+      replayBtn.style.display = 'none';
     }
   },
 
@@ -127,11 +137,11 @@ const GameEngine = {
         break;
 
       case 'work':
-        if (s.stamina < 20) { UI.showResultPopup('體力不足', [{ text: '需要至少 20 體力', type: 'result-loss' }]); return; }
-        s.stamina -= 20;
+        if (s.stamina < 40) { UI.showResultPopup('體力不足', [{ text: '需要至少 40 體力', type: 'result-loss' }]); return; }
+        s.stamina -= 40;
         const earn = 8000 + Math.floor(Math.random() * 7001);
         s.money += earn;
-        results.push({ text: '體力 -20', type: 'result-loss' });
+        results.push({ text: '體力 -40', type: 'result-loss' });
         results.push({ text: `金錢 +${earn.toLocaleString()}`, type: 'result-gain' });
         eventTriggered = this.checkEventTrigger('work', results);
         break;
@@ -203,7 +213,11 @@ const GameEngine = {
     const thresholds = StoryData.chapterThresholds[charKey];
 
     // Already completed all chapters
-    if (chProgress >= 5) return false;
+    const totalChapters = StoryData.routes[charKey].length;
+    if (chProgress >= totalChapters) return false;
+
+    // First chapter (meeting) is free for all; subsequent chapters require unlock
+    if (chProgress > 0 && !SaveSystem.isUnlocked(charKey)) return false;
 
     // First encounter or subsequent chapter
     const nextChapter = chProgress;
@@ -297,7 +311,7 @@ const GameEngine = {
         document.getElementById('vn-text').textContent = '請選擇...';
         const choiceIdx = await UI.showChoices(scene.choices, this.state);
         const chosen = scene.choices[choiceIdx];
-        if (chosen.effect) {
+        if (chosen.effect && !this.replayMode) {
           if (chosen.effect.affection && this.currentRoute) {
             this.state.affection[this.currentRoute] = Math.min(100,
               Math.max(0, this.state.affection[this.currentRoute] + chosen.effect.affection));
@@ -308,12 +322,14 @@ const GameEngine = {
         break;
 
       case 'ending':
-        // Mark chapter complete
-        this.state.chapterProgress[this.currentRoute] = 5;
-        if (!this.state.completedEndings.includes(this.currentRoute)) {
-          this.state.completedEndings.push(this.currentRoute);
+        if (!this.replayMode) {
+          // Mark chapter complete
+          this.state.chapterProgress[this.currentRoute] = StoryData.routes[this.currentRoute].length;
+          if (!this.state.completedEndings.includes(this.currentRoute)) {
+            this.state.completedEndings.push(this.currentRoute);
+          }
+          SaveSystem.save(this.state);
         }
-        SaveSystem.save(this.state);
         UI.showEnding(scene.image, scene.title, scene.text);
         break;
     }
@@ -332,8 +348,15 @@ const GameEngine = {
   },
 
   endChapter() {
+    if (this.replayMode) {
+      this.replayMode = false;
+      UI.hideCG();
+      UI.showScreen('hub');
+      if (this.state) UI.updateHub(this.state);
+      return;
+    }
     const charKey = this.currentRoute;
-    if (this.state.chapterProgress[charKey] < 5) {
+    if (this.state.chapterProgress[charKey] < StoryData.routes[charKey].length) {
       this.state.chapterProgress[charKey]++;
     }
     SaveSystem.save(this.state);
@@ -360,8 +383,14 @@ const GameEngine = {
       const c = StoryData.characters[key];
       const btn = document.createElement('button');
       btn.className = `char-select-btn ${key}`;
-      btn.innerHTML = `${c.name}<br><small>好感 ${s.affection[key]}/100</small>`;
-      btn.onclick = () => this.selectDateTarget(key);
+      if (!SaveSystem.isUnlocked(key)) {
+        btn.innerHTML = `${c.name}<br><small>🔒 需解鎖</small>`;
+        btn.style.opacity = '0.5';
+        btn.onclick = () => { this.closeDateMenu(); this.openUnlockPopup(); };
+      } else {
+        btn.innerHTML = `${c.name}<br><small>好感 ${s.affection[key]}/100</small>`;
+        btn.onclick = () => this.selectDateTarget(key);
+      }
       container.appendChild(btn);
     });
 
@@ -409,7 +438,8 @@ const GameEngine = {
     const chProgress = s.chapterProgress[charKey];
     const thresholds = StoryData.chapterThresholds[charKey];
     let hint = '';
-    if (chProgress < 5 && chProgress > 0 && s.affection[charKey] >= thresholds[chProgress]) {
+    const totalCh = StoryData.routes[charKey].length;
+    if (chProgress < totalCh && chProgress > 0 && s.affection[charKey] >= thresholds[chProgress]) {
       hint = `\n\n💡 好感度已達標！透過「${StoryData.actionTriggers[this._getActionForChar(charKey)]? this._getActionName(charKey) : '對應行動'}」可觸發下一章劇情！`;
     }
 
@@ -501,8 +531,14 @@ const GameEngine = {
         const c = StoryData.characters[key];
         const btn = document.createElement('button');
         btn.className = `char-select-btn ${key}`;
-        btn.innerHTML = `${c.name}<br><small>好感 ${s.affection[key]}/100</small>`;
-        btn.onclick = () => this.giveGift(key);
+        if (!SaveSystem.isUnlocked(key)) {
+          btn.innerHTML = `${c.name}<br><small>🔒 需解鎖</small>`;
+          btn.style.opacity = '0.5';
+          btn.onclick = () => { this.closeShop(); this.openUnlockPopup(); };
+        } else {
+          btn.innerHTML = `${c.name}<br><small>好感 ${s.affection[key]}/100</small>`;
+          btn.onclick = () => this.giveGift(key);
+        }
         giftSelect.appendChild(btn);
       });
 
@@ -535,6 +571,270 @@ const GameEngine = {
     document.getElementById('popup-shop').style.display = 'none';
     document.getElementById('shop-items').style.display = '';
     document.getElementById('shop-gift-select').style.display = 'none';
+  },
+
+  // === Unlock System ===
+  openUnlockPopup() {
+    const grid = document.getElementById('unlock-char-grid');
+    const payArea = document.getElementById('unlock-payment-area');
+    grid.innerHTML = '';
+    payArea.style.display = 'none';
+    payArea.innerHTML = '';
+
+    const chars = ['yuki', 'kaoru', 'amy', 'rebecca'];
+    chars.forEach(key => {
+      const c = StoryData.characters[key];
+      const unlocked = SaveSystem.isUnlocked(key);
+      const isFree = c.unlockType === 'free';
+
+      const card = document.createElement('button');
+      card.className = `unlock-card ${isFree ? 'free' : 'paid'} ${unlocked && !isFree ? 'unlocked' : ''}`;
+      card.innerHTML = `
+        <div class="unlock-name" style="color:${c.color}">${c.name}</div>
+        <div class="unlock-full">${c.fullName}</div>
+        <div class="unlock-route-desc">${c.desc}</div>
+        <div class="unlock-price">${isFree ? '免費' : unlocked ? '✅ 已解鎖' : `NT$ ${c.price}`}</div>
+        <span class="unlock-badge">${isFree ? 'FREE' : unlocked ? '已購買' : '付費解鎖'}</span>
+      `;
+      if (!unlocked && !isFree) {
+        card.onclick = () => this.showPaymentArea(key);
+      }
+      card.style.cursor = (!unlocked && !isFree) ? 'pointer' : 'default';
+      grid.appendChild(card);
+    });
+
+    document.getElementById('popup-unlock').style.display = '';
+  },
+
+  showPaymentArea(charKey) {
+    const c = StoryData.characters[charKey];
+    const payArea = document.getElementById('unlock-payment-area');
+    payArea.style.display = '';
+    payArea.innerHTML = `
+      <div class="ecpay-area">
+        <h4>💳 購買 ${c.name} 路線</h4>
+        <div class="ecpay-char-info">
+          <strong style="color:${c.color}">${c.fullName}</strong><br>
+          ${c.desc}<br><br>
+          金額: <strong style="color:#ffd700">NT$ ${c.price}</strong>
+        </div>
+        <button class="ecpay-btn" id="ecpay-pay-btn" onclick="game.processECPay('${charKey}')">
+          綠界 ECPay 付款
+        </button>
+        <div id="ecpay-status" class="ecpay-processing" style="display:none"></div>
+      </div>
+    `;
+    // Scroll to payment area
+    payArea.scrollIntoView({ behavior: 'smooth' });
+  },
+
+  async processECPay(charKey) {
+    const c = StoryData.characters[charKey];
+    const btn = document.getElementById('ecpay-pay-btn');
+    const status = document.getElementById('ecpay-status');
+    btn.disabled = true;
+    btn.textContent = '處理中...';
+    status.style.display = '';
+    status.textContent = '⏳ 建立訂單中...';
+
+    try {
+      // 呼叫後端建立 ECPay 訂單
+      const resp = await fetch('/api/ecpay/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ charKey }),
+      });
+
+      if (!resp.ok) {
+        let errMsg = '建立訂單失敗';
+        try { const err = await resp.json(); errMsg = err.error || errMsg; } catch(e) {}
+        throw new Error(errMsg);
+      }
+
+      const data = await resp.json();
+      status.textContent = '💳 導向綠界付款頁面...';
+
+      // 開啟付款表單 (在新視窗或當前視窗)
+      // 方式: 寫入一個隱藏的 iframe 或直接在當前頁面開啟
+      const payWindow = window.open('', '_blank');
+      if (payWindow) {
+        payWindow.document.write(data.formHTML);
+        payWindow.document.close();
+        status.textContent = '📋 已開啟付款視窗，完成付款後請回到此頁面';
+        btn.textContent = '已開啟付款視窗';
+
+        // 輪詢訂單狀態
+        this._pollOrderStatus(data.tradeNo, charKey);
+      } else {
+        // 彈窗被阻擋，改用當前頁面
+        status.innerHTML = '⚠️ 彈窗被阻擋，點擊下方按鈕前往付款';
+        const directBtn = document.createElement('button');
+        directBtn.className = 'ecpay-btn';
+        directBtn.style.marginTop = '0.5em';
+        directBtn.textContent = '前往綠界付款';
+        directBtn.onclick = () => {
+          // 直接在當前頁面寫入表單
+          document.open();
+          document.write(data.formHTML);
+          document.close();
+        };
+        status.appendChild(directBtn);
+      }
+    } catch (err) {
+      status.textContent = `❌ 錯誤: ${err.message}`;
+      btn.disabled = false;
+      btn.textContent = '綠界 ECPay 付款';
+      console.error('ECPay 訂單建立失敗:', err);
+
+      // 如果後端不可用，使用本地模擬模式
+      if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError') || err.message.includes('建立訂單失敗') || err.message.includes('Unsupported')) {
+        status.textContent = '⚠️ 付款伺服器未啟動，使用模擬付款模式';
+        btn.disabled = false;
+        btn.textContent = '模擬付款 (測試用)';
+        btn.onclick = () => this._mockPayment(charKey);
+      }
+    }
+  },
+
+  // 輪詢訂單狀態 (付款完成後自動解鎖)
+  _pollOrderStatus(tradeNo, charKey) {
+    let attempts = 0;
+    const maxAttempts = 120; // 最多等 10 分鐘 (每 5 秒查一次)
+    const poll = setInterval(async () => {
+      attempts++;
+      if (attempts > maxAttempts) {
+        clearInterval(poll);
+        return;
+      }
+      try {
+        const resp = await fetch(`/api/ecpay/order-status/${tradeNo}`);
+        if (!resp.ok) return;
+        const order = await resp.json();
+        if (order.status === 'paid') {
+          clearInterval(poll);
+          SaveSystem.setUnlock(charKey);
+          const c = StoryData.characters[charKey];
+          this.closeUnlockPopup();
+          UI.showResultPopup('🎉 解鎖成功', [
+            { text: `${c.name} (${c.fullName}) 路線已解鎖！`, type: 'result-gain' },
+            { text: `付款金額: NT$ ${c.price}`, type: '' },
+            { text: '現在可以觸發她的故事了', type: 'result-event' },
+          ]);
+          if (this.state) UI.updateHub(this.state);
+        }
+      } catch (e) { /* 靜默忽略網路錯誤 */ }
+    }, 5000);
+  },
+
+  // 模擬付款 (後端不可用時的 fallback)
+  _mockPayment(charKey) {
+    const c = StoryData.characters[charKey];
+    const status = document.getElementById('ecpay-status');
+    status.textContent = '💳 模擬付款中...';
+    setTimeout(() => {
+      status.textContent = '✅ 模擬付款成功！';
+      SaveSystem.setUnlock(charKey);
+      setTimeout(() => {
+        this.closeUnlockPopup();
+        UI.showResultPopup('🎉 解鎖成功 (模擬)', [
+          { text: `${c.name} (${c.fullName}) 路線已解鎖！`, type: 'result-gain' },
+          { text: `付款金額: NT$ ${c.price}`, type: '' },
+          { text: '⚠️ 此為模擬付款，啟動 node server.js 可使用真實綠界', type: 'result-event' },
+        ]);
+        if (this.state) UI.updateHub(this.state);
+      }, 800);
+    }, 1500);
+  },
+
+  closeUnlockPopup() {
+    document.getElementById('popup-unlock').style.display = 'none';
+  },
+
+  // === Replay System ===
+  openReplayMenu() {
+    const charSelect = document.getElementById('replay-char-select');
+    const chapterList = document.getElementById('replay-chapter-list');
+    charSelect.innerHTML = '';
+    charSelect.style.display = '';
+    chapterList.style.display = 'none';
+    chapterList.innerHTML = '';
+
+    // Get completed endings from save
+    const save = this.state || SaveSystem.load();
+    if (!save || !save.completedEndings || save.completedEndings.length === 0) {
+      charSelect.innerHTML = '<p style="color:#999;padding:1em">還沒有完成任何角色的結局<br><small>完成角色結局後可在此重看故事</small></p>';
+      document.getElementById('popup-replay').style.display = '';
+      return;
+    }
+
+    save.completedEndings.forEach(key => {
+      const c = StoryData.characters[key];
+      if (!c) return;
+      const btn = document.createElement('button');
+      btn.className = `char-select-btn ${key}`;
+      btn.innerHTML = `${c.name}<br><small>${c.fullName}</small>`;
+      btn.onclick = () => this.showReplayChapters(key, save);
+      charSelect.appendChild(btn);
+    });
+
+    document.getElementById('popup-replay').style.display = '';
+  },
+
+  showReplayChapters(charKey, save) {
+    const charSelect = document.getElementById('replay-char-select');
+    const chapterList = document.getElementById('replay-chapter-list');
+    charSelect.style.display = 'none';
+    chapterList.style.display = '';
+    chapterList.className = 'replay-chapter-list';
+    chapterList.innerHTML = '';
+
+    const chapters = StoryData.routes[charKey];
+    const maxPlayable = save.chapterProgress[charKey] || 0;
+    const c = StoryData.characters[charKey];
+
+    const header = document.createElement('p');
+    header.style.cssText = `color:${c.color};font-weight:bold;margin-bottom:0.5em;font-size:1.1rem;`;
+    header.textContent = `${c.name} 的故事`;
+    chapterList.appendChild(header);
+
+    chapters.forEach((ch, idx) => {
+      const btn = document.createElement('button');
+      const playable = idx < maxPlayable;
+      btn.className = `replay-chapter-btn ${playable ? '' : 'locked'}`;
+      btn.innerHTML = `<span><span class="ch-num">第${idx + 1}章</span> ${ch.title}</span>
+        <span class="ch-play">${playable ? '▶ 重看' : '🔒'}</span>`;
+      if (playable) {
+        btn.onclick = () => this.replayChapter(charKey, idx);
+      }
+      chapterList.appendChild(btn);
+    });
+
+    // Back to char select
+    const backBtn = document.createElement('button');
+    backBtn.className = 'btn-sub';
+    backBtn.textContent = '← 選擇角色';
+    backBtn.style.marginTop = '0.5em';
+    backBtn.onclick = () => {
+      charSelect.style.display = '';
+      chapterList.style.display = 'none';
+    };
+    chapterList.appendChild(backBtn);
+  },
+
+  replayChapter(charKey, chapterIndex) {
+    this.replayMode = true;
+    this.closeReplayMenu();
+    // Ensure we have a state for UI updates
+    if (!this.state) {
+      this.state = SaveSystem.load() || SaveSystem.getDefault();
+    }
+    this.startChapter(charKey, chapterIndex);
+  },
+
+  closeReplayMenu() {
+    document.getElementById('popup-replay').style.display = 'none';
+    document.getElementById('replay-char-select').style.display = '';
+    document.getElementById('replay-chapter-list').style.display = 'none';
   },
 };
 

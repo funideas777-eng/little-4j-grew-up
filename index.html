@@ -3,16 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <meta name="screen-orientation" content="landscape">
   <title>小小4J長大了</title>
-  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/game.css?v=3">
 </head>
 <body>
-  <!-- Rotate prompt for portrait mode -->
-  <div id="rotate-prompt">
-    <div class="rotate-icon">📱↻</div>
-    <p>請將手機橫放以獲得最佳體驗</p>
-  </div>
   <!-- Loading overlay -->
   <div id="loading-overlay">
     <div class="loading-content">
@@ -48,6 +42,8 @@
         <div class="title-buttons">
           <button class="btn-main" onclick="game.newGame()">新遊戲</button>
           <button class="btn-main" id="btn-continue" onclick="game.loadGame()" style="display:none">繼續遊戲</button>
+          <button class="btn-main btn-secondary" id="btn-replay-title" onclick="game.openReplayMenu()" style="display:none">📖 重看故事</button>
+          <button class="btn-main btn-secondary" onclick="game.openUnlockPopup()">🔓 解鎖角色路線</button>
         </div>
       </div>
     </div>
@@ -58,7 +54,11 @@
       <div class="hub-header">
         <div class="day-display">第 <span id="day-num">1</span> 天</div>
         <div class="month-display">月收入: NT$ <span id="income-display">22,000</span></div>
-        <button class="btn-save-small" onclick="game.saveGame()">存檔</button>
+        <div class="hub-header-btns">
+          <button class="btn-save-small" onclick="game.openUnlockPopup()">🔓 解鎖路線</button>
+          <button class="btn-save-small" id="btn-replay-hub" onclick="game.openReplayMenu()" style="display:none">📖 回憶</button>
+          <button class="btn-save-small" onclick="game.saveGame()">存檔</button>
+        </div>
       </div>
       <div class="stats-bar">
         <div class="stat"><span class="stat-icon">💪</span> 體力 <span id="stat-stamina">100</span>/100</div>
@@ -77,7 +77,7 @@
         <button class="action-card" data-action="work" onclick="game.doAction('work')">
           <div class="action-icon">💼</div>
           <div class="action-name">打工</div>
-          <div class="action-cost">體力-20</div>
+          <div class="action-cost">體力-40</div>
           <div class="action-gain">💰+8,000~15,000</div>
         </button>
         <button class="action-card" data-action="cars" onclick="game.doAction('cars')">
@@ -140,7 +140,29 @@
       <div class="ending-overlay">
         <h2 id="ending-title" class="ending-title"></h2>
         <p id="ending-text" class="ending-text"></p>
-        <button class="btn-main" onclick="game.returnToTitle()">回到標題</button>
+        <button class="btn-main" onclick="game.openReplayMenu()">📖 重看故事</button>
+        <button class="btn-main btn-secondary" onclick="game.returnToTitle()">回到標題</button>
+      </div>
+    </div>
+
+    <!-- Unlock Popup -->
+    <div id="popup-unlock" class="popup" style="display:none">
+      <div class="popup-content popup-wide">
+        <h3>🔓 解鎖角色路線</h3>
+        <p class="unlock-desc">Yuki 路線免費遊玩，其他角色需付費解鎖</p>
+        <div id="unlock-char-grid" class="unlock-grid"></div>
+        <div id="unlock-payment-area" style="display:none"></div>
+        <button class="btn-sub" onclick="game.closeUnlockPopup()">返回</button>
+      </div>
+    </div>
+
+    <!-- Replay Popup -->
+    <div id="popup-replay" class="popup" style="display:none">
+      <div class="popup-content popup-wide">
+        <h3>📖 重看故事章節</h3>
+        <div id="replay-char-select" class="char-select-grid"></div>
+        <div id="replay-chapter-list" style="display:none"></div>
+        <button class="btn-sub" onclick="game.closeReplayMenu()">返回</button>
       </div>
     </div>
 
@@ -175,9 +197,9 @@
     </div>
   </div>
 
-  <script src="js/save.js"></script>
-  <script src="js/data.js"></script>
-  <script src="js/ui.js"></script>
-  <script src="js/engine.js"></script>
+  <script src="js/save.js?v=3"></script>
+  <script src="js/data.js?v=3"></script>
+  <script src="js/ui.js?v=3"></script>
+  <script src="js/engine.js?v=3"></script>
 </body>
 </html>

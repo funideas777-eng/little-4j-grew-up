@@ -55,6 +55,14 @@ const UI = {
       dateBtn.classList.add('locked');
     }
 
+    // Replay button in hub
+    const replayHub = document.getElementById('btn-replay-hub');
+    if (state.completedEndings && state.completedEndings.length > 0) {
+      replayHub.style.display = '';
+    } else {
+      replayHub.style.display = 'none';
+    }
+
     // Affection bars
     this.updateAffectionBar(state);
   },
@@ -71,9 +79,15 @@ const UI = {
     chars.forEach(c => {
       if (!state.metChars[c.key]) return;
       const aff = state.affection[c.key];
+      const unlocked = SaveSystem.isUnlocked(c.key);
       const item = document.createElement('div');
       item.className = `aff-item ${c.cls}`;
-      item.innerHTML = `${c.name} <div class="aff-bar-inner"><div class="aff-bar-fill" style="width:${aff}%"></div></div> ${aff}`;
+      if (unlocked) {
+        item.innerHTML = `${c.name} <div class="aff-bar-inner"><div class="aff-bar-fill" style="width:${aff}%"></div></div> ${aff}`;
+      } else {
+        item.innerHTML = `${c.name} 🔒`;
+        item.style.opacity = '0.5';
+      }
       bar.appendChild(item);
     });
   },
