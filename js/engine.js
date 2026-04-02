@@ -867,9 +867,6 @@ const Preloader = {
     const uiImages = [
       'assets/images/ui/ui_title_screen.png',
       'assets/images/ui/ui_main_hub.png',
-      'assets/images/ui/ui_status_panel.png',
-      'assets/images/ui/ui_dialogue_box.png',
-      'assets/images/ui/ui_map_taipei.png',
     ];
     let loaded = 0;
     const total = uiImages.length;
